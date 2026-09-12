@@ -1,4 +1,5 @@
 import crypto from 'crypto';
+import mongoose from 'mongoose';
 import ZephyrRegistration from '../models/ZephyrRegistration.js';
 
 /**
@@ -16,6 +17,14 @@ const generateZephyrId = () => {
 export const registerZephyrDelegate = async (req, res, next) => {
   try {
     const { name, email, phone, college, department, year, track } = req.body;
+
+    // Fast-fail if database is not connected
+    if (mongoose.connection.readyState !== 1) {
+      return res.status(503).json({
+        success: false,
+        message: 'Database service is connecting. Please ensure MONGODB_URI is configured in your environment.'
+      });
+    }
 
     // Validate presence of required fields
     if (!name || !email || !phone || !college || !track) {

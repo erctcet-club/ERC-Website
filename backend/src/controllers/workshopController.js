@@ -1,3 +1,4 @@
+import mongoose from 'mongoose';
 import WorkshopRegistration from '../models/WorkshopRegistration.js';
 
 /**
@@ -15,6 +16,14 @@ const generateWorkshopId = () => {
 export const registerWorkshopParticipant = async (req, res, next) => {
   try {
     const { name, email, phone, college, workshop } = req.body;
+
+    // Fast-fail if database is not connected
+    if (mongoose.connection.readyState !== 1) {
+      return res.status(503).json({
+        success: false,
+        message: 'Database service is connecting. Please ensure MONGODB_URI is configured in your environment.'
+      });
+    }
 
     // Validate presence of required fields
     if (!name || !email || !phone || !workshop) {
