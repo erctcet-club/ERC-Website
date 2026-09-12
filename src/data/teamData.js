@@ -1,220 +1,167 @@
 // Official ERC Core Team Roster (Academic Year 2026-27)
-// Updated with verified roles and removed placeholder photos
+// Clean data-driven hierarchy preserving official structure
 
 export const facultyMentor = {
   id: "mentor-niketamoda",
   name: "Assistant Professor Niketamoda",
-  position: "Faculty Mentor",
-  roleCategory: "Faculty",
-  department: "Thakur College of Engineering",
-  academicYear: "Faculty Mentor",
-  rollNo: "FAC-ERC",
-  bio: "Providing faculty oversight, academic guidance, and strategic mentorship to support student innovation in electronics and robotics engineering.",
+  role: "Faculty Mentor",
+  branch: "Department of Electronics & Telecommunication",
+  academicYear: "Faculty Oversight",
+  bio: "Providing faculty oversight, academic governance, and strategic mentorship to support student-driven innovation across electronics, robotics, and embedded hardware.",
   photo: "/faculty-mentor.jpg",
   email: "niketamoda@tcetmumbai.in",
   linkedin: "https://linkedin.com/school/tcetmumbai",
-  isAssigned: true,
-  isFaculty: true,
+  github: null
 };
 
-export const coreTeamMembers = [
+// Executive Leadership
+export const executiveLeaders = [
   {
     id: "lead-gautam-thakur",
     name: "Gautam Thakur",
-    position: "Lead",
-    domainTitle: "LEAD",
-    roleCategory: "Leadership",
-    department: "Electronics and Telecommunication Engineering",
-    academicYear: "Third Year",
-    rollNo: "TE E&TC",
-    bio: "Leads ERC and oversees overall vision, technical activities, team coordination, and institutional initiatives.",
+    role: "Club Lead",
+    branch: "Electronics and Telecommunication",
+    academicYear: "Third Year (TE)",
+    hierarchyGroup: "lead",
+    bio: "Directs ERC operations, student project cohorts, technical vision, institutional initiatives, and organizational coordination.",
     photo: null,
     email: "gautam.thakur@tcetmumbai.in",
-    linkedin: "https://linkedin.com/in/",
-    github: "https://github.com/",
-    isAssigned: true,
-    hierarchyOrder: 1,
-    accent: "red",
-    branch: "lead"
+    linkedin: null,
+    github: null
   },
   {
     id: "co-lead-abhay-vishwakarma",
     name: "Abhay Vishwakarma",
-    position: "Co-Lead",
-    domainTitle: "CO-LEAD",
-    roleCategory: "Leadership",
-    department: "Electronics & Computing Specialization",
-    academicYear: "Third Year",
-    rollNo: "CO-LEAD-01",
-    bio: "Co-leads ERC operations, cross-domain technical execution, and strategic rollout of club activities.",
+    role: "Club Co-Lead",
+    branch: "Electronics & Computing Specialization",
+    academicYear: "Third Year (TE)",
+    hierarchyGroup: "co-lead",
+    bio: "Co-leads ERC operations, cross-domain technical execution, lab resource management, and strategic rollout of club activities.",
     photo: null,
     email: "abhay.vishwakarma@tcetmumbai.in",
-    linkedin: "https://linkedin.com/in/",
-    github: "https://github.com/",
-    isAssigned: true,
-    hierarchyOrder: 2,
-    accent: "blue",
-    branch: "co-lead"
-  },
+    linkedin: null,
+    github: null
+  }
+];
+
+// Lead Branch Domain Leads
+export const leadBranchMembers = [
   {
     id: "tech-lead-brahim-singh",
     name: "Brahim Singh",
-    position: "Technical Lead",
-    domainTitle: "TECH LEAD",
-    roleCategory: "Technical",
-    department: "ST AI&DS-D",
-    academicYear: "Second Year",
-    rollNo: "Roll 05",
-    bio: "Responsible for technical direction, drone flight controllers, embedded firmware innovation, and hands-on engineering activities.",
+    role: "Technical Lead",
+    branch: "ST AI&DS-D",
+    academicYear: "Second Year (SE)",
+    hierarchyGroup: "lead",
+    bio: "Directs technical architecture, multirotor flight controllers, embedded firmware pipelines, and hands-on laboratory engineering sessions.",
     photo: null,
     email: "brahim.singh@tcetmumbai.in",
-    linkedin: "https://linkedin.com/in/",
-    github: "https://github.com/",
-    isAssigned: true,
-    hierarchyOrder: 3,
-    accent: "red",
-    branch: "lead"
+    linkedin: null,
+    github: null
   },
   {
     id: "sponsor-hitarth-bhatt",
     name: "Hitarth Bhatt",
-    position: "Sponsorship Lead",
-    domainTitle: "SPONSOR LEAD",
-    roleCategory: "External Relations",
-    department: "SE MME",
-    academicYear: "Second Year",
-    rollNo: "Roll 34",
-    bio: "Manages industry partnerships, corporate sponsorships, lab equipment grants, and external funding relationships.",
+    role: "Sponsorship Lead",
+    branch: "SE MME",
+    academicYear: "Second Year (SE)",
+    hierarchyGroup: "lead",
+    bio: "Manages corporate technology partnerships, laboratory hardware sponsorships, industry alliances, and external funding relationships.",
     photo: null,
     email: "hitarth.bhatt@tcetmumbai.in",
-    linkedin: "https://linkedin.com/in/",
-    isAssigned: true,
-    hierarchyOrder: 4,
-    accent: "red",
-    branch: "lead"
+    linkedin: null,
+    github: null
   },
   {
     id: "social-rudram-panchal",
     name: "Rudram Panchal",
-    position: "Social Media Lead",
-    domainTitle: "SOCIAL MEDIA LEAD",
-    roleCategory: "Outreach",
-    department: "E&TC-B",
-    academicYear: "Second Year",
-    rollNo: "Roll 06",
-    bio: "Manages ERC's social media presence, visual broadcasts, technical documentaries, and online community outreach.",
+    role: "Social Media Lead",
+    branch: "E&TC-B",
+    academicYear: "Second Year (SE)",
+    hierarchyGroup: "lead",
+    bio: "Oversees digital presence, technical documentation media, workshop broadcasts, and student community outreach.",
     photo: null,
     email: "rudram.panchal@tcetmumbai.in",
-    linkedin: "https://linkedin.com/in/",
-    isAssigned: true,
-    hierarchyOrder: 5,
-    accent: "red",
-    branch: "lead"
-  },
+    linkedin: null,
+    github: null
+  }
+];
+
+// Co-Lead Branch Domain Leads
+export const coLeadBranchMembers = [
   {
     id: "exec-riya-yadav",
     name: "Riya Yadav",
-    position: "Executive Lead",
-    domainTitle: "EXEC LEAD",
-    roleCategory: "Operations",
-    department: "ST AI&DS-D",
-    academicYear: "Second Year",
-    rollNo: "Roll 60",
-    bio: "Coordinates execution, administration, internal operational logistics, and organizational activities of the club.",
+    role: "Executive Lead",
+    branch: "ST AI&DS-D",
+    academicYear: "Second Year (SE)",
+    hierarchyGroup: "co-lead",
+    bio: "Coordinates operational logistics, institutional administration, member communications, and internal club scheduling.",
     photo: null,
     email: "riya.yadav@tcetmumbai.in",
-    linkedin: "https://linkedin.com/in/",
-    isAssigned: true,
-    hierarchyOrder: 6,
-    accent: "blue",
-    branch: "co-lead"
+    linkedin: null,
+    github: null
   },
   {
     id: "sec-anshika-yadav",
     name: "Anshika Yadav",
-    position: "Secretary",
-    domainTitle: "SECRETARY",
-    roleCategory: "Administration",
-    department: "SE IT-D",
-    academicYear: "Second Year",
-    rollNo: "Roll 48",
-    bio: "Handles official documentation, correspondence, regulatory compliance, and internal record-keeping for ERC.",
+    role: "Secretary",
+    branch: "SE IT-D",
+    academicYear: "Second Year (SE)",
+    hierarchyGroup: "co-lead",
+    bio: "Responsible for official documentation, institutional record-keeping, regulatory compliance, and departmental correspondence.",
     photo: null,
     email: "anshika.yadav@tcetmumbai.in",
-    linkedin: "https://linkedin.com/in/",
-    isAssigned: true,
-    hierarchyOrder: 7,
-    accent: "blue",
-    branch: "co-lead"
+    linkedin: null,
+    github: null
   },
   {
     id: "proj-nidhi-tare",
     name: "Nidhi Tare",
-    position: "Project Lead",
-    domainTitle: "PROJECT LEAD",
-    roleCategory: "Technical",
-    department: "ST AI&DS-D",
-    academicYear: "Second Year",
-    rollNo: "Roll 27",
-    bio: "Coordinates technical projects, hardware research initiatives, student project cohorts, and practical prototype execution.",
+    role: "Project Lead",
+    branch: "ST AI&DS-D",
+    academicYear: "Second Year (SE)",
+    hierarchyGroup: "co-lead",
+    bio: "Coordinates student project milestones, hardware prototyping phases, laboratory component inventories, and prototype testing.",
     photo: null,
     email: "nidhi.tare@tcetmumbai.in",
-    linkedin: "https://linkedin.com/in/",
-    github: "https://github.com/",
-    isAssigned: true,
-    hierarchyOrder: 8,
-    accent: "blue",
-    branch: "co-lead"
+    linkedin: null,
+    github: null
   },
   {
     id: "event-niyati-tare",
     name: "Niyati Tare",
-    position: "Event Lead",
-    domainTitle: "EVENT LEAD",
-    roleCategory: "Operations",
-    department: "SE IT-D",
-    academicYear: "Second Year",
-    rollNo: "Roll 17",
-    bio: "Plans, schedules, and executes ERC's institutional events, technical summits, and flagship sessions.",
+    role: "Event Lead",
+    branch: "SE IT-D",
+    academicYear: "Second Year (SE)",
+    hierarchyGroup: "co-lead",
+    bio: "Curates, schedules, and executes technical summits, hackathons, hardware bootcamps, and club workshops.",
     photo: null,
     email: "niyati.tare@tcetmumbai.in",
-    linkedin: "https://linkedin.com/in/",
-    isAssigned: true,
-    hierarchyOrder: 9,
-    accent: "blue",
-    branch: "co-lead"
+    linkedin: null,
+    github: null
   }
 ];
 
-// Structured Hierarchy Tree Definition
-export const leadNode = {
-  ...coreTeamMembers.find(m => m.id === "lead-gautam-thakur"),
-  subordinates: [
-    coreTeamMembers.find(m => m.id === "tech-lead-brahim-singh"),
-    coreTeamMembers.find(m => m.id === "sponsor-hitarth-bhatt"),
-    coreTeamMembers.find(m => m.id === "social-rudram-panchal")
-  ]
+// Dedicated structured entry for Jaffer (ready for user-provided data)
+export const jafferMember = {
+  id: "member-jaffer",
+  name: "Jaffer",
+  role: "Core Team",
+  branch: "", // To be updated once provided
+  academicYear: "", // To be updated once provided
+  hierarchyGroup: "leadership",
+  bio: "", // To be updated once provided
+  photo: null, // To be updated once provided
+  email: null,
+  linkedin: null,
+  github: null,
+  isPendingDetails: true // Set to false once details are provided
 };
 
-export const coLeadNode = {
-  ...coreTeamMembers.find(m => m.id === "co-lead-abhay-vishwakarma"),
-  subordinates: [
-    coreTeamMembers.find(m => m.id === "exec-riya-yadav"),
-    coreTeamMembers.find(m => m.id === "sec-anshika-yadav"),
-    coreTeamMembers.find(m => m.id === "proj-nidhi-tare"),
-    coreTeamMembers.find(m => m.id === "event-niyati-tare")
-  ]
-};
-
-export const teamHierarchy = {
-  apex: {
-    name: "ERC",
-    fullName: "Electronics & Robotics Club",
-    description: "Executive Student Body • TCET Mumbai"
-  },
-  branches: [
-    { key: "lead", node: leadNode },
-    { key: "coLead", node: coLeadNode }
-  ]
-};
-
+// All members aggregated for convenient lookup
+export const allCoreMembers = [
+  ...executiveLeaders,
+  ...leadBranchMembers,
+  ...coLeadBranchMembers
+];

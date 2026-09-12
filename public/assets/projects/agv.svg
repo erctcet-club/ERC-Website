@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#12181F"/>
+      <stop offset="100%" stop-color="#0B0F14"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#2A3649" stroke-width="0.8" stroke-opacity="0.4"/>
+    </pattern>
+    <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#1560D4" fill-opacity="0.25"/>
+    </pattern>
+  </defs>
+
+  <!-- Dark Engineering Background -->
+  <rect width="800" height="500" fill="url(#bgGrad)"/>
+  <rect width="800" height="500" fill="url(#grid)"/>
+  <rect width="800" height="500" fill="url(#dots)"/>
+
+  <!-- Telemetry HUD Overlay -->
+  <g font-family="monospace" font-size="11" fill="#1560D4" opacity="0.8">
+    <text x="30" y="40">SYS_ID: AGV-MK4 // AUTONOMOUS_GROUND_VEHICLE</text>
+    <text x="30" y="60">NAV_STACK: ROS2_HUMBLE // 2D_LIDAR_SLAM</text>
+    <text x="630" y="40">STATUS: OPERATIONAL</text>
+    <text x="630" y="60">PAYLOAD: 35.0 KG</text>
+  </g>
+
+  <!-- Technical Schematic: AGV Chassis & Wheels -->
+  <g transform="translate(400, 260)">
+    <!-- Chassis Body -->
+    <rect x="-160" y="-80" width="320" height="150" rx="16" fill="#1B2430" stroke="#1560D4" stroke-width="2"/>
+    <rect x="-140" y="-60" width="280" height="110" rx="8" fill="#12181F" stroke="#2A3649" stroke-width="1.5"/>
+
+    <!-- LiDAR Turret on Top -->
+    <circle cx="0" cy="-60" r="28" fill="#12181F" stroke="#D62828" stroke-width="2"/>
+    <circle cx="0" cy="-60" r="14" fill="#D62828" fill-opacity="0.3"/>
+    <!-- LiDAR Beams -->
+    <path d="M 0 -60 L -120 -180" stroke="#D62828" stroke-dasharray="4,4" stroke-width="1.5" opacity="0.6"/>
+    <path d="M 0 -60 L 0 -190" stroke="#D62828" stroke-dasharray="4,4" stroke-width="1.5" opacity="0.8"/>
+    <path d="M 0 -60 L 120 -180" stroke="#D62828" stroke-dasharray="4,4" stroke-width="1.5" opacity="0.6"/>
+    <path d="M -140 -190 A 200 200 0 0 1 140 -190" fill="none" stroke="#D62828" stroke-width="1" opacity="0.4"/>
+
+    <!-- Rugged Wheels -->
+    <rect x="-195" y="-70" width="35" height="50" rx="6" fill="#0B0F14" stroke="#1560D4" stroke-width="1.5"/>
+    <rect x="160" y="-70" width="35" height="50" rx="6" fill="#0B0F14" stroke="#1560D4" stroke-width="1.5"/>
+    <rect x="-195" y="20" width="35" height="50" rx="6" fill="#0B0F14" stroke="#1560D4" stroke-width="1.5"/>
+    <rect x="160" y="20" width="35" height="50" rx="6" fill="#0B0F14" stroke="#1560D4" stroke-width="1.5"/>
+
+    <!-- Center Sensor Array -->
+    <circle cx="-60" cy="-10" r="8" fill="#1560D4" fill-opacity="0.5"/>
+    <circle cx="60" cy="-10" r="8" fill="#1560D4" fill-opacity="0.5"/>
+    <line x1="-110" y1="25" x2="110" y2="25" stroke="#1560D4" stroke-width="2" stroke-dasharray="8,4"/>
+  </g>
+
+  <!-- Framing Accents -->
+  <path d="M 20 20 L 50 20 M 20 20 L 20 50" stroke="#D62828" stroke-width="2" fill="none"/>
+  <path d="M 780 20 L 750 20 M 780 20 L 780 50" stroke="#1560D4" stroke-width="2" fill="none"/>
+  <path d="M 20 480 L 50 480 M 20 480 L 20 450" stroke="#1560D4" stroke-width="2" fill="none"/>
+  <path d="M 780 480 L 750 480 M 780 480 L 780 450" stroke="#D62828" stroke-width="2" fill="none"/>
+</svg>

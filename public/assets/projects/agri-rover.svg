@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#12181F"/>
+      <stop offset="100%" stop-color="#0B0F14"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#2A3649" stroke-width="0.8" stroke-opacity="0.4"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bgGrad)"/>
+  <rect width="800" height="500" fill="url(#grid)"/>
+
+  <g font-family="monospace" font-size="11" fill="#1560D4" opacity="0.85">
+    <text x="30" y="40">SYS_ID: ROBO-AGRI // AUTONOMOUS_FIELD_ROVER</text>
+    <text x="30" y="60">TELEMETRY: LORAWAN_868MHZ // RTK_GPS_FIX</text>
+    <text x="630" y="40">DRIVE: 4WD_INDEPENDENT</text>
+    <text x="630" y="60">PAYLOAD: SOIL_MULTISPECTRAL</text>
+  </g>
+
+  <!-- Rover Blueprint -->
+  <g transform="translate(400, 260)">
+    <!-- High Clearance Frame -->
+    <path d="M -140 30 L -90 -50 L 90 -50 L 140 30" fill="none" stroke="#1560D4" stroke-width="4"/>
+    <rect x="-90" y="-70" width="180" height="70" rx="10" fill="#1B2430" stroke="#2A3649" stroke-width="2"/>
+    
+    <!-- Solar Harvesting Top Deck -->
+    <rect x="-100" y="-85" width="200" height="15" rx="4" fill="#0B0F14" stroke="#1560D4" stroke-width="1.5"/>
+    <line x1="-50" y1="-85" x2="-50" y2="-70" stroke="#1560D4" stroke-width="1"/>
+    <line x1="0" y1="-85" x2="0" y2="-70" stroke="#1560D4" stroke-width="1"/>
+    <line x1="50" y1="-85" x2="50" y2="-70" stroke="#1560D4" stroke-width="1"/>
+
+    <!-- Rocker Bogie Wheels -->
+    <circle cx="-140" cy="50" r="35" fill="#12181F" stroke="#D62828" stroke-width="3"/>
+    <circle cx="-140" cy="50" r="14" fill="#1B2430" stroke="#2A3649" stroke-width="1.5"/>
+    <circle cx="140" cy="50" r="35" fill="#12181F" stroke="#D62828" stroke-width="3"/>
+    <circle cx="140" cy="50" r="14" fill="#1B2430" stroke="#2A3649" stroke-width="1.5"/>
+
+    <!-- Soil Sensor Probe -->
+    <line x1="0" y1="0" x2="0" y2="70" stroke="#D62828" stroke-width="3"/>
+    <polygon points="0,85 -8,70 8,70" fill="#D62828"/>
+  </g>
+
+  <path d="M 20 20 L 50 20 M 20 20 L 20 50" stroke="#D62828" stroke-width="2" fill="none"/>
+  <path d="M 780 20 L 750 20 M 780 20 L 780 50" stroke="#1560D4" stroke-width="2" fill="none"/>
+  <path d="M 20 480 L 50 480 M 20 480 L 20 450" stroke="#1560D4" stroke-width="2" fill="none"/>
+  <path d="M 780 480 L 750 480 M 780 480 L 780 450" stroke="#D62828" stroke-width="2" fill="none"/>
+</svg>
