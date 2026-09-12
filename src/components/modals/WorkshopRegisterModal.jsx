@@ -49,10 +49,18 @@ export default function WorkshopRegisterModal({ isOpen, workshop, onClose }) {
         })
       });
 
-      const data = await response.json();
+      let data = {};
+      try {
+        data = await response.json();
+      } catch {
+        // non-JSON response
+      }
 
       if (!response.ok) {
-        throw new Error(data.message || 'Workshop registration could not be completed.');
+        if (response.status === 409) {
+          throw new Error('You are already registered for this event.');
+        }
+        throw new Error(data.message || 'Unable to connect to the registration server. Please try again.');
       }
 
       const confirmedId = data.registrationId || `ERC-WS-${Math.floor(10000 + Math.random() * 90000)}`;
@@ -83,7 +91,11 @@ export default function WorkshopRegisterModal({ isOpen, workshop, onClose }) {
       setConfirmed(true);
     } catch (err) {
       console.error('[Workshop Registration Error]:', err);
-      setErrorMessage(err.message || 'Network error occurred. Please verify server connectivity.');
+      if (err.message && err.message.includes('already registered')) {
+        setErrorMessage('You are already registered for this event.');
+      } else {
+        setErrorMessage('Unable to connect to the registration server. Please try again.');
+      }
     } finally {
       setIsSubmitting(false);
     }

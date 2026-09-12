@@ -3,11 +3,11 @@ import mongoose from 'mongoose';
 import ZephyrRegistration from '../models/ZephyrRegistration.js';
 
 /**
- * Generate a unique registration ID: ERC-ZEPHYR-XXXXX
+ * Generate a unique registration ID: ERC-ZEPHYR-XXXXX (e.g. ERC-ZEPHYR-A8F42)
  */
 const generateZephyrId = () => {
-  const randomNum = Math.floor(10000 + Math.random() * 90000);
-  return `ERC-ZEPHYR-${randomNum}`;
+  const code = crypto.randomBytes(3).toString('hex').toUpperCase().slice(0, 5);
+  return `ERC-ZEPHYR-${code}`;
 };
 
 /**
@@ -46,7 +46,7 @@ export const registerZephyrDelegate = async (req, res, next) => {
     if (existingRegistration) {
       return res.status(409).json({
         success: false,
-        message: 'You are already registered for this event track.',
+        message: 'You are already registered for this event.',
         registrationId: existingRegistration.registrationId
       });
     }

@@ -2,11 +2,11 @@ import rateLimit from 'express-rate-limit';
 
 /**
  * General API Rate Limiter
- * 150 requests per 15 minutes per IP
+ * 100 requests per 15 minutes per IP
  */
 export const generalLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
-  max: 150,
+  max: 100,
   standardHeaders: true,
   legacyHeaders: false,
   message: {
@@ -18,11 +18,11 @@ export const generalLimiter = rateLimit({
 /**
  * Strict Registration Rate Limiter
  * Prevents spam bots and rapid form flood submissions
- * 15 registration submissions per 15 minutes per IP
+ * 10 registration submissions per 15 minutes per IP
  */
 export const registrationLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
-  max: 15,
+  max: 10,
   standardHeaders: true,
   legacyHeaders: false,
   message: {

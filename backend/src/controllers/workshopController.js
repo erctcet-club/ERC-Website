@@ -1,12 +1,13 @@
+import crypto from 'crypto';
 import mongoose from 'mongoose';
 import WorkshopRegistration from '../models/WorkshopRegistration.js';
 
 /**
- * Generate a unique workshop registration ID: ERC-WS-XXXXX
+ * Generate a unique workshop registration ID: ERC-WS-XXXXX (e.g. ERC-WS-A8F42)
  */
 const generateWorkshopId = () => {
-  const randomNum = Math.floor(10000 + Math.random() * 90000);
-  return `ERC-WS-${randomNum}`;
+  const code = crypto.randomBytes(3).toString('hex').toUpperCase().slice(0, 5);
+  return `ERC-WS-${code}`;
 };
 
 /**

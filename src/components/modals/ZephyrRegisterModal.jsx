@@ -57,10 +57,18 @@ export default function ZephyrRegisterModal({ isOpen, onClose }) {
         })
       });
 
-      const data = await response.json();
+      let data = {};
+      try {
+        data = await response.json();
+      } catch {
+        // non-JSON response
+      }
 
       if (!response.ok) {
-        throw new Error(data.message || 'Registration failed. Please check your details and try again.');
+        if (response.status === 409) {
+          throw new Error('You are already registered for this event.');
+        }
+        throw new Error(data.message || 'Unable to connect to the registration server. Please try again.');
       }
 
       const confirmedId = data.registrationId || `ERC-ZEPHYR-${Math.floor(10000 + Math.random() * 90000)}`;
@@ -91,7 +99,11 @@ export default function ZephyrRegisterModal({ isOpen, onClose }) {
       }
     } catch (err) {
       console.error('[Zephyr Registration Error]:', err);
-      setErrorMessage(err.message || 'Network error occurred. Please verify backend connectivity.');
+      if (err.message && err.message.includes('already registered')) {
+        setErrorMessage('You are already registered for this event.');
+      } else {
+        setErrorMessage('Unable to connect to the registration server. Please try again.');
+      }
     } finally {
       setIsSubmitting(false);
     }

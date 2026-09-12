@@ -1,8 +1,8 @@
 // Technical Workshops Data for ERC TCET
 export const workshopsData = [
   {
-    id: "ws-drone-assembly",
-    title: "Drone Assembly & Betaflight Tuning",
+    id: "ws-uav-drone-assembly",
+    title: "UAV Drone Assembly & Betaflight Tuning",
     tagline: "FPV Quadcopter Aerodynamics, ESC Telemetry & PID Loop Tuning",
     badge: "Flagship Clinic",
     duration: "2 Days (16 Hours)",
@@ -20,8 +20,27 @@ export const workshopsData = [
     seatsAvailable: 35
   },
   {
-    id: "ws-amr-ros2",
-    title: "Autonomous Mobile Robotics with ROS 2",
+    id: "ws-pcb-layout-kicad",
+    title: "Multi-layer High-Speed PCB Layout in KiCad",
+    tagline: "KiCad 8, Differential Impedance & Thermal Relief",
+    badge: "Design Clinic",
+    duration: "2 Days (14 Hours)",
+    difficulty: "Intermediate",
+    dates: "October 26–27, 2026",
+    instructor: "ERC Hardware Architecture Team",
+    description: "Learn professional schematic capture, 4-layer stackup design, controlled impedance routing for high-speed SPI/I2C buses, Gerber generation, and assembly BOM production.",
+    syllabus: [
+      "Schematic Hierarchy & Symbol Library Creation",
+      "4-Layer Stackup & Ground Plane Return Paths",
+      "Length Matching & Decoupling Capacitor Placement",
+      "DRC Checks, Gerber Export & Pick-and-Place"
+    ],
+    prerequisites: "Circuit theory and electronic component fundamentals.",
+    seatsAvailable: 30
+  },
+  {
+    id: "ws-autonomous-ros2-lidar",
+    title: "Autonomous Robotics with ROS 2 & LiDAR",
     tagline: "LiDAR SLAM, Nav2 Path Planning & Real-Time Motor Control",
     badge: "Hands-on Lab",
     duration: "3 Days (24 Hours)",
@@ -39,22 +58,22 @@ export const workshopsData = [
     seatsAvailable: 28
   },
   {
-    id: "ws-pcb-design",
-    title: "High-Speed Multi-Layer PCB Design",
-    tagline: "KiCad 8, Differential Impedance & Thermal Relief",
-    badge: "Design Clinic",
-    duration: "2 Days (14 Hours)",
-    difficulty: "Beginner to Intermediate",
+    id: "ws-edge-ai-vision",
+    title: "Edge AI & Computer Vision on Raspberry Pi / ESP32",
+    tagline: "TensorFlow Lite Micro, OpenCV & Real-Time Object Tracking",
+    badge: "AI Systems",
+    duration: "2 Days (16 Hours)",
+    difficulty: "Intermediate",
     dates: "November 21–22, 2026",
-    instructor: "ERC Hardware Architecture Team",
-    description: "Learn professional schematic capture, 4-layer stackup design, controlled impedance routing for high-speed SPI/I2C buses, Gerber generation, and assembly BOM production.",
+    instructor: "ERC Edge AI & Vision Lead",
+    description: "Deploy quantized lightweight neural networks directly onto edge microcontrollers and SBCs for high-speed target classification, optical flow, and obstacle detection.",
     syllabus: [
-      "Schematic Hierarchy & Symbol Library Creation",
-      "4-Layer Stackup & Ground Plane Return Paths",
-      "Length Matching & Decoupling Capacitor Placement",
-      "DRC Checks, Gerber Export & Pick-and-Place"
+      "Edge Hardware Architectures & Camera Interfaces",
+      "OpenCV Pipelines for Color Space & Contour Tracking",
+      "Model Quantization with TFLite Micro",
+      "UART Telemetry Output to Flight Controllers"
     ],
-    prerequisites: "Circuit theory basics.",
-    seatsAvailable: 40
+    prerequisites: "Python basics and Linux terminal familiarity.",
+    seatsAvailable: 32
   }
 ];
