@@ -1,4 +1,5 @@
-// Official ERC Core Team Roster (Academic Year 2026-27)
+// Official ERC Team Roster (Academic Year 2026-27)
+// Flat member structure without hierarchy or organizational chart dependencies
 
 export const facultyMentor = {
   id: "mentor-niket-amoda",
@@ -8,126 +9,130 @@ export const facultyMentor = {
   academicYear: "Faculty Oversight",
   bio: "Providing faculty oversight, academic governance, and strategic mentorship to support student-driven innovation across electronics, robotics, and embedded hardware.",
   photo: "/faculty-mentor.jpg",
+  image: "/faculty-mentor.jpg",
   email: "erctet@gmail.com",
-  linkedin: "https://linkedin.com/school/tcetmumbai",
+  linkedin: "https://www.linkedin.com/school/tcetmumbai",
   github: null
 };
 
-// Core Team Members strictly per official sequence:
-// 1. Lead, 2. Co-Lead, 3. Technical Lead, 4. Social Media Lead, 5. Sponsorship Head, 6. Project Lead, 7. Secretary, 8. Event Lead, 9. Executive Lead
 export const coreTeamMembers = [
   {
-    id: "core-lead-gautam",
+    id: "gautam-thakur",
     name: "Gautam Thakur",
-    role: "Club Lead",
-    academicYear: "Third Year (TE)",
+    role: "Lead",
+    branch: "E&TC",
+    academicYear: "3rd Year",
     photo: "/gautam-thakur.jpg",
-    branch: "Electronics & Telecommunication",
-    email: null,
-    linkedin: null,
-    github: null,
-    bio: "Club Lead directing operations, student projects, and club initiatives."
+    image: "/gautam-thakur.jpg",
+    bio: "Club Lead directing operations, student research projects, and club initiatives.",
+    linkedin: "https://www.linkedin.com/in/gautam-thakur0207",
+    github: "https://github.com/Electric-Brain",
+    email: "1032250166@tcetmumbai.in"
   },
   {
-    id: "core-colead-abhay",
+    id: "abhay-vishwakarma",
     name: "Abhay Vishwakarma",
-    role: "Club Co-Lead",
-    academicYear: "Second Year (SE)",
+    role: "Co-Lead",
+    branch: "AI&DS",
+    academicYear: "2nd Year",
     photo: "/abhay-vishwakarma.jpg",
-    branch: "ST",
-    email: null,
-    linkedin: null,
-    github: null,
-    bio: "Club Co-Lead directing technical projects and core operations."
+    image: "/abhay-vishwakarma.jpg",
+    bio: "Club Co-Lead directing autonomous UAV research, technical projects, and core operations.",
+    linkedin: "https://www.linkedin.com/in/abhay-vishwakarma-6a64153b2",
+    github: "https://github.com/AbhayLabs-07",
+    email: "1032251955@tcetmumbai.in"
   },
   {
-    id: "core-tech-bravim",
+    id: "bravim-singh",
     name: "Bravim Singh",
     role: "Technical Lead",
-    academicYear: "Second Year (SE)",
-    photo: "/bravim-singh.jpg",
     branch: "ST",
-    email: null,
+    academicYear: "2nd Year",
+    photo: "/bravim-singh.jpg",
+    image: "/bravim-singh.jpg",
+    bio: "Directs technical architecture and robotics engineering sessions.",
     linkedin: null,
     github: null,
-    bio: "Directs technical architecture and engineering sessions."
+    email: null
   },
   {
-    id: "core-social-rudram",
+    id: "rudram-panchal",
     name: "Rudram Panchal",
     role: "Social Media Lead",
-    academicYear: "Third Year (TE)",
-    photo: null,
     branch: "E&TC",
-    email: null,
+    academicYear: "3rd Year",
+    photo: null,
+    image: null,
+    bio: "Oversees digital presence, technical media, and student outreach.",
     linkedin: null,
     github: null,
-    bio: "Oversees digital presence, technical media, and student outreach."
+    email: null
   },
   {
-    id: "core-sponsor-pratimhi",
+    id: "pratimhi-savant",
     name: "Pratimhi Savant",
     role: "Sponsorship Head",
-    academicYear: "Third Year (SE)",
-    photo: null,
     branch: "SE",
-    email: null,
+    academicYear: "3rd Year",
+    photo: null,
+    image: null,
+    bio: "Manages corporate technology partnerships and sponsorships.",
     linkedin: null,
     github: null,
-    bio: "Manages corporate technology partnerships and sponsorships."
+    email: null
   },
   {
-    id: "core-proj-nidhi",
+    id: "nidhi-tare",
     name: "Nidhi Tare",
     role: "Project Lead",
-    academicYear: "Second Year (SE)",
+    branch: "AI&DS",
+    academicYear: "2nd Year",
     photo: null,
-    branch: "ST",
-    email: null,
-    linkedin: null,
-    github: null,
-    bio: "Coordinates project milestones, hardware prototyping, and lab testing."
+    image: null,
+    bio: "Coordinates project milestones, hardware prototyping, and lab testing.",
+    linkedin: "https://www.linkedin.com/in/nidhi-tare-092410415",
+    github: "https://github.com/nidhitarep054424-max",
+    email: "1032251937@tcetmumbai.in"
   },
   {
-    id: "core-sec-anshika",
+    id: "anshika-yadav",
     name: "Anshika Yadav",
     role: "Secretary",
-    academicYear: "Second Year (SE)",
-    photo: null,
     branch: "SE IT",
-    email: null,
+    academicYear: "2nd Year",
+    photo: null,
+    image: null,
+    bio: "Responsible for official club documentation and departmental correspondence.",
     linkedin: null,
     github: null,
-    bio: "Responsible for official club documentation and departmental correspondence."
+    email: null
   },
   {
-    id: "core-event-niyati",
+    id: "niyati-tare",
     name: "Niyati Tare",
     role: "Event Lead",
-    academicYear: "Second Year (SE)",
+    branch: "IT",
+    academicYear: "2nd Year",
     photo: null,
-    branch: "SE IT",
-    email: null,
-    linkedin: null,
-    github: null,
-    bio: "Curates and executes technical summits, hackathons, and workshops."
+    image: null,
+    bio: "Curates and executes technical summits, hackathons, and workshops.",
+    linkedin: "https://www.linkedin.com/in/niyati-tare-902a12281",
+    github: "https://github.com/niyatitare24-max",
+    email: "1032250992@tcetmumbai.in"
   },
   {
-    id: "core-exec-riya",
+    id: "riya-yadav",
     name: "Riya Yadav",
     role: "Executive Lead",
-    academicYear: "Second Year (SE)",
-    photo: null,
     branch: "ST",
-    email: null,
+    academicYear: "2nd Year",
+    photo: null,
+    image: null,
+    bio: "Coordinates operational logistics, administration, and internal scheduling.",
     linkedin: null,
     github: null,
-    bio: "Coordinates operational logistics, administration, and internal scheduling."
+    email: null
   }
 ];
 
-// Preserved exports for compatibility
-export const executiveLeaders = coreTeamMembers.slice(0, 2);
-export const leadBranchMembers = coreTeamMembers.slice(2, 6);
-export const coLeadBranchMembers = coreTeamMembers.slice(6);
 export const allCoreMembers = coreTeamMembers;
