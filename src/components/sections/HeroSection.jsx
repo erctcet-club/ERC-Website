@@ -2,10 +2,7 @@ import React from 'react';
 import { soundFx } from '../../utils/audio';
 import { 
   ArrowRight, 
-  Users,
-  Cpu,
-  Bot,
-  Plane
+  Users
 } from 'lucide-react';
 
 export default function HeroSection() {
@@ -13,28 +10,13 @@ export default function HeroSection() {
     <section id="home" className="relative min-h-[85vh] flex items-center pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-gradient-to-b from-[#F7F8FA] via-white to-[#F7F8FA]">
       {/* Background Circuit Grid & Subtle Accents */}
       <div className="absolute inset-0 circuit-grid opacity-40 pointer-events-none" />
-      
-      {/* Brand Corner Geometric Framing */}
-      <div className="absolute top-0 left-0 w-28 h-28 border-t-2 border-l-2 border-[#D62828] pointer-events-none opacity-25" />
-      <div className="absolute bottom-0 right-0 w-28 h-28 border-b-2 border-r-2 border-[#1560D4] pointer-events-none opacity-25" />
-
-      {/* Floating Coordinate Telemetry */}
-      <div className="absolute top-32 right-8 hidden lg:flex flex-col items-end gap-1 pointer-events-none font-mono text-[10px] text-[#12181F]/35">
-        <div className="flex items-center gap-1.5">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-          <span>SYS_STATUS // ACTIVE</span>
-        </div>
-        <span>19.2056° N, 72.8752° E</span>
-        <span>TCET MUMBAI</span>
-      </div>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center space-y-8">
         
-        {/* Institution Badge */}
+        {/* Institution Badge with Location Emoji */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#12181F]/10 shadow-2xs">
-          <span className="w-2 h-2 rounded-full bg-[#D62828]" />
           <span className="text-xs font-mono font-semibold tracking-wider text-[#12181F]/80">
-            THAKUR COLLEGE OF ENGINEERING &amp; TECHNOLOGY
+            📍 THAKUR COLLEGE OF ENGINEERING &amp; TECHNOLOGY
           </span>
         </div>
 
@@ -83,22 +65,6 @@ export default function HeroSection() {
             <Users className="w-4 h-4 text-[#D62828]" />
             <span>Meet The Team</span>
           </a>
-        </div>
-
-        {/* Technical Sub-strip */}
-        <div className="pt-6 flex flex-wrap items-center justify-center gap-6 sm:gap-8 font-mono text-xs text-[#12181F]/60 border-t border-[#12181F]/10">
-          <div className="flex items-center gap-2">
-            <Bot className="w-4 h-4 text-[#1560D4]" />
-            <span>Robotics &amp; AGVs</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Plane className="w-4 h-4 text-[#D62828]" />
-            <span>Autonomous UAVs</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Cpu className="w-4 h-4 text-[#12181F]" />
-            <span>Embedded Systems</span>
-          </div>
         </div>
 
       </div>

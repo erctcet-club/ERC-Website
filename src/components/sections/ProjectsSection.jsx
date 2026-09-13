@@ -31,10 +31,10 @@ export default function ProjectsSection() {
 
   const categories = [
     "All",
-    "Robotics & Motion",
-    "Aeronautics & Flight",
+    "Robotics",
+    "UAV & Drone Systems",
     "Artificial Intelligence",
-    "Embedded & PCB"
+    "Embedded Electronics"
   ];
 
   const filteredProjects = selectedCategory === "All"
@@ -42,7 +42,7 @@ export default function ProjectsSection() {
     : projectsData.filter(p => 
         p.category === selectedCategory || 
         p.category.includes(selectedCategory) ||
-        (selectedCategory === "Embedded & PCB" && (p.category.includes("Embedded") || p.category.includes("Electronics")))
+        (selectedCategory === "Embedded Electronics" && (p.category.includes("Embedded") || p.category.includes("Electronics")))
       );
 
   // Update arrow button states based on scroll position
@@ -135,11 +135,16 @@ export default function ProjectsSection() {
               Built at ERC TCET
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-heading text-[#12181F]">
-              What We Have Built
+              Build What We Have Built
             </h2>
-            <p className="text-sm md:text-base text-[#12181F]/70 leading-relaxed font-sans">
-              Autonomous mobile robots, cooperative UAV systems, 6-DOF kinematics manipulators, and high-frequency avionics developed at TCET Mumbai.
-            </p>
+            <div className="space-y-1">
+              <span className="text-xs font-mono font-bold text-[#1560D4] uppercase tracking-wider block">
+                Automation Robots
+              </span>
+              <p className="text-sm md:text-base text-[#12181F]/70 leading-relaxed font-sans">
+                Designing and developing practical robotic systems that combine electronics, embedded intelligence, sensors, control systems, and mechanical actuation.
+              </p>
+            </div>
           </div>
 
           {/* Controls: Category Filter & Slider Navigation Buttons */}

@@ -22,7 +22,7 @@ export default function Footer({ onOpenZephyr, onOpenAdmin }) {
               <ErcLogo className="h-12 md:h-14" showTagline={true} dark={true} />
             </div>
             <p className="text-xs text-slate-300 leading-relaxed max-w-md pt-2">
-              The official technical student-driven engineering society of Thakur College of Engineering and Technology (TCET), Mumbai. Spearheading hands-on research in autonomous mobile robotics, aerial UAV flight systems, edge artificial intelligence, and embedded electronics.
+              The official technical student-driven engineering society of Thakur College of Engineering and Technology (TCET), Mumbai. Spearheading hands-on research in multidisciplinary engineering, practical robotics, aerial UAV flight systems, artificial intelligence, and embedded electronics.
             </p>
             <div className="pt-2 flex items-center gap-3">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono bg-white/5 border border-white/10 text-emerald-400">
@@ -77,12 +77,12 @@ export default function Footer({ onOpenZephyr, onOpenAdmin }) {
               Disciplines
             </h4>
             <ul className="space-y-2 text-xs text-slate-300 font-mono">
-              <li className="text-white/80">● Autonomous Mobile Robotics</li>
-              <li className="text-white/80">● Multirotor UAV Systems</li>
+              <li className="text-white/80">● Multidisciplinary Engineering</li>
+              <li className="text-white/80">● Robotics &amp; Automation</li>
+              <li className="text-white/80">● UAV &amp; Drone Systems</li>
               <li className="text-white/80">● Embedded ARM Cortex Firmware</li>
-              <li className="text-white/80">● Edge Computer Vision &amp; AI</li>
               <li className="text-white/80">● High-Speed Multi-Layer PCB</li>
-              <li className="text-white/80">● Industrial Automation</li>
+              <li className="text-white/80">● Artificial Intelligence</li>
             </ul>
           </div>
 

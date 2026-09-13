@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { facultyMentor, coreTeamMembers } from '../../data/teamData';
+import { facultyMentor, currentCoreMembers, alumniCoreMembers } from '../../data/teamData';
 import { soundFx } from '../../utils/audio';
 import { 
   Users, 
@@ -23,6 +23,7 @@ const getInitials = (name) => {
 
 export default function TeamSection() {
   const [selectedMember, setSelectedMember] = useState(null);
+  const [activeCategory, setActiveCategory] = useState('current'); // 'current' | 'alumni'
 
   const openMemberDetail = (member) => {
     soundFx.playClick();
@@ -33,6 +34,8 @@ export default function TeamSection() {
     soundFx.playClick();
     setSelectedMember(null);
   };
+
+  const displayedMembers = activeCategory === 'current' ? currentCoreMembers : alumniCoreMembers;
 
   return (
     <section id="team" className="py-20 md:py-28 bg-white relative overflow-hidden border-b border-[#12181F]/10">
@@ -50,8 +53,8 @@ export default function TeamSection() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-heading text-[#12181F]">
             Core Team &amp; Mentorship
           </h2>
-          <p className="text-sm md:text-base text-[#12181F]/70">
-            Student engineers and faculty guidance driving autonomous robotics and technical research at TCET Mumbai.
+          <p className="text-sm md:text-base text-[#12181F]/75 leading-relaxed font-sans">
+            Students and faculty mentors collaborate to explore practical engineering challenges, develop technical solutions, and pursue meaningful research through the Electronics &amp; Robotics Club at TCET.
           </p>
         </div>
 
@@ -90,8 +93,12 @@ export default function TeamSection() {
                 {facultyMentor.name}
               </h3>
               
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans line-clamp-3">
-                {facultyMentor.bio}
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
+                Faculty mentors guiding student-driven robotics and technical research.
+              </p>
+
+              <p className="text-xs text-slate-400 font-sans">
+                Student engineers and faculty mentors collaborating on practical research, prototypes, and technical innovation at TCET Mumbai.
               </p>
 
               <div className="flex items-center justify-center sm:justify-start gap-4 pt-1 text-xs font-mono">
@@ -123,20 +130,56 @@ export default function TeamSection() {
           </div>
         </div>
 
-        {/* 2. Core Team: 3 x 3 Flat Responsive Card Grid */}
+        {/* 2. Core Team Category Navigation: Strictly ONLY Two Categories */}
         <div className="space-y-8 max-w-6xl mx-auto">
-          <div className="text-center space-y-1">
-            <span className="text-xs font-mono text-[#D62828] font-bold uppercase tracking-wider">
-              Student Leadership
-            </span>
-            <h3 className="text-2xl sm:text-3xl font-black font-heading text-[#12181F]">
-              Core Team Members
-            </h3>
+          <div className="text-center space-y-4">
+            <div className="space-y-1">
+              <span className="text-xs font-mono text-[#D62828] font-bold uppercase tracking-wider">
+                Leadership Roster
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-black font-heading text-[#12181F]">
+                Core Team
+              </h3>
+            </div>
+
+            {/* Exactly Two Tabs: [ Current Core ] [ Alumni Core ] */}
+            <div className="inline-flex items-center p-1.5 rounded-2xl bg-[#F7F8FA] border border-[#12181F]/10 gap-1.5 shadow-2xs">
+              <button
+                onClick={() => {
+                  soundFx.playClick();
+                  setActiveCategory('current');
+                }}
+                className={`px-6 py-2 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer ${
+                  activeCategory === 'current'
+                    ? 'bg-[#12181F] text-white shadow-xs'
+                    : 'text-[#12181F]/70 hover:text-[#12181F] hover:bg-white/80'
+                }`}
+              >
+                Current Core
+              </button>
+              <button
+                onClick={() => {
+                  soundFx.playClick();
+                  setActiveCategory('alumni');
+                }}
+                className={`px-6 py-2 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer ${
+                  activeCategory === 'alumni'
+                    ? 'bg-[#12181F] text-white shadow-xs'
+                    : 'text-[#12181F]/70 hover:text-[#12181F] hover:bg-white/80'
+                }`}
+              >
+                Alumni Core
+              </button>
+            </div>
           </div>
 
-          {/* 3 x 3 Grid: 1 col (mobile), 2 cols (tablet), 3 cols (desktop) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {coreTeamMembers.map((member) => (
+          {/* Core Member Cards Grid */}
+          <div className={`grid gap-6 sm:gap-8 ${
+            activeCategory === 'alumni'
+              ? 'grid-cols-1 sm:grid-cols-2 max-w-3xl mx-auto'
+              : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
+          }`}>
+            {displayedMembers.map((member) => (
               <TeamMemberCard 
                 key={member.id} 
                 member={member} 
@@ -155,7 +198,7 @@ export default function TeamSection() {
           onClick={closeMemberDetail}
         >
           <div 
-            className="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 border border-[#12181F]/15 shadow-2xl relative space-y-6"
+            className="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 border border-[#1560D4]/30 shadow-2xl relative space-y-6"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
@@ -169,7 +212,7 @@ export default function TeamSection() {
 
             {/* Profile Lockup */}
             <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-5">
-              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 border-2 border-[#12181F]/20 shadow-md shrink-0 overflow-hidden bg-white">
+              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 border-2 border-[#D62828] shadow-md shrink-0 overflow-hidden bg-white">
                 {selectedMember.photo || selectedMember.image ? (
                   <img 
                     src={selectedMember.photo || selectedMember.image} 
@@ -184,20 +227,40 @@ export default function TeamSection() {
               </div>
 
               <div className="space-y-1.5 flex-1">
-                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase bg-[#12181F] text-white inline-block">
-                  {selectedMember.role}
-                </span>
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase bg-[#12181F] text-white inline-block">
+                    {selectedMember.role}
+                  </span>
+                  {selectedMember.status && (
+                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase bg-[#D62828] text-white inline-block">
+                      {selectedMember.status}
+                    </span>
+                  )}
+                </div>
                 <h3 className="text-xl sm:text-2xl font-black font-heading text-[#12181F]">
                   {selectedMember.name}
                 </h3>
                 <div className="space-y-0.5 text-xs font-mono text-[#12181F]/70">
-                  <p><span className="text-[#12181F] font-bold">Department:</span> {selectedMember.branch}</p>
-                  <p><span className="text-[#12181F] font-bold">Academic Year:</span> {selectedMember.academicYear}</p>
+                  {selectedMember.academicYear && selectedMember.branch ? (
+                    <p><span className="text-[#12181F] font-bold">Academic Year &amp; Department:</span> {selectedMember.academicYear} · {selectedMember.branch}</p>
+                  ) : (
+                    <>
+                      {selectedMember.branch && (
+                        <p><span className="text-[#12181F] font-bold">Department:</span> {selectedMember.branch}</p>
+                      )}
+                      {selectedMember.academicYear && (
+                        <p><span className="text-[#12181F] font-bold">Academic Year:</span> {selectedMember.academicYear}</p>
+                      )}
+                    </>
+                  )}
+                  {selectedMember.college && (
+                    <p><span className="text-[#12181F] font-bold">College:</span> {selectedMember.college}</p>
+                  )}
                 </div>
               </div>
             </div>
 
-            {/* Biography & Responsibilities */}
+            {/* Biography & Responsibilities (if present) */}
             {selectedMember.bio && (
               <div className="space-y-1.5 border-t border-[#12181F]/10 pt-4">
                 <h4 className="text-xs font-mono font-bold text-[#D62828] uppercase tracking-wider">
@@ -264,20 +327,21 @@ export default function TeamSection() {
 }
 
 // Individual Flat Team Member Card Component
+// Blue outer card border, red circular photo accent, single designation (no duplicate role)
 function TeamMemberCard({ member, onSelect }) {
   const photo = member.photo || member.image;
 
   return (
     <div
       onClick={() => onSelect(member)}
-      className="bg-[#F7F8FA] rounded-2xl border border-[#12181F]/10 p-6 text-center hover:shadow-lg hover:border-[#12181F]/25 hover:bg-white transition-all duration-200 cursor-pointer group flex flex-col items-center justify-between space-y-4"
+      className="bg-white rounded-2xl border border-[#1560D4]/30 hover:border-[#1560D4] p-6 text-center hover:shadow-lg transition-all duration-200 cursor-pointer group flex flex-col items-center justify-between space-y-4"
     >
-      {/* Circular Photo Holder / Frame */}
-      <div className="relative">
+      {/* Circular Photo Holder with Black-and-White Designation Badge */}
+      <div className="relative mb-1">
         <div className={`w-28 h-28 rounded-full p-1 border-2 transition-all duration-200 ${
           photo 
             ? "border-[#D62828] shadow-md group-hover:scale-105" 
-            : "border-dashed border-[#12181F]/20 bg-white group-hover:border-[#1560D4] group-hover:scale-105"
+            : "border-2 border-[#D62828]/60 bg-white group-hover:scale-105"
         }`}>
           {photo ? (
             <img
@@ -293,32 +357,53 @@ function TeamMemberCard({ member, onSelect }) {
           )}
         </div>
 
-        {/* Position Badge at Bottom of Circle */}
-        <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase whitespace-nowrap shadow-2xs bg-[#12181F] text-white">
+        {/* Black-and-White Designation Badge positioned directly below or overlapping the circular profile image */}
+        <span className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-[#12181F] text-white shadow-xs border border-[#12181F] whitespace-nowrap select-none">
           {member.role}
         </span>
       </div>
 
-      {/* Name & Academic Year / Branch */}
-      <div className="space-y-1.5 w-full pt-1">
+      {/* Name & Academic Details (duplicate blue role removed) */}
+      <div className="space-y-1.5 w-full pt-2">
         <h4 className="text-lg font-bold font-heading text-[#12181F] group-hover:text-[#D62828] transition-colors">
           {member.name}
         </h4>
-        
-        {/* Role text */}
-        <p className="text-xs font-mono font-semibold text-[#1560D4]">
-          {member.role}
-        </p>
 
-        {/* Year & Branch text */}
-        <div className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-white border border-[#12181F]/10 text-xs font-mono text-[#12181F]/70">
-          <span>{member.academicYear}{member.branch ? ` • ${member.branch}` : ''}</span>
+        {/* Academic Year · Department & Status */}
+        <div className="flex flex-wrap items-center justify-center gap-1.5 pt-0.5">
+          {member.status && (
+            <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-[#D62828]/10 text-[#D62828] border border-[#D62828]/20 text-[11px] font-mono font-bold">
+              {member.status}
+            </span>
+          )}
+          {member.academicYear && member.branch && (
+            <span className="inline-flex items-center px-2.5 py-1 rounded-md bg-[#F7F8FA] border border-[#12181F]/10 text-xs font-mono text-[#12181F]/75">
+              {member.academicYear} · {member.branch}
+            </span>
+          )}
+          {!member.academicYear && member.branch && (
+            <span className="inline-flex items-center px-2.5 py-1 rounded-md bg-[#F7F8FA] border border-[#12181F]/10 text-xs font-mono text-[#12181F]/75">
+              {member.branch}
+            </span>
+          )}
+          {member.academicYear && !member.branch && (
+            <span className="inline-flex items-center px-2.5 py-1 rounded-md bg-[#F7F8FA] border border-[#12181F]/10 text-xs font-mono text-[#12181F]/75">
+              {member.academicYear}
+            </span>
+          )}
         </div>
+
+        {/* College Affiliation */}
+        {member.college && (
+          <p className="text-[11px] font-mono text-[#12181F]/60 text-center pt-0.5 line-clamp-1" title={member.college}>
+            {member.college}
+          </p>
+        )}
       </div>
 
       {/* Social Handles / Action Slots (Rendered only if verified link/email exists) */}
       <div className="pt-2 border-t border-[#12181F]/5 w-full flex items-center justify-between text-slate-400">
-        <div className="flex items-center gap-1.5">
+        <div className="flex items-center gap-1.5 min-h-[28px]">
           {member.linkedin && (
             <a 
               href={member.linkedin} 

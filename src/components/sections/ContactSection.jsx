@@ -46,15 +46,15 @@ export default function ContactSection() {
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1560D4]/10 border border-[#1560D4]/30 text-[#1560D4] font-mono text-xs font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1560D4]/10 border border-[#1560D4]/30 text-[#1560D4] font-mono text-xs font-bold uppercase tracking-wider">
             <Sparkles className="w-3.5 h-3.5" />
-            Connect With The Lab
+            Multidisciplinary Engineering
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-heading text-[#12181F]">
             Let&apos;s Build Something.
           </h2>
-          <p className="text-sm md:text-base text-[#12181F]/70 leading-relaxed">
-            Reach out for project collaborations, technical inquiries, or institutional research partnerships with ERC TCET.
+          <p className="text-sm md:text-base text-[#12181F]/70 leading-relaxed font-sans max-w-xl mx-auto">
+            Combining electronics, robotics, embedded systems, automation, software, and mechanical design to build practical solutions. Reach out for project collaborations, technical inquiries, or institutional research partnerships.
           </p>
         </div>
 

@@ -140,20 +140,6 @@ export default function Navbar({ onOpenZephyr, onOpenAdmin }) {
             </button>
           )}
 
-          {/* Audio Telemetry Toggle */}
-          <button
-            onClick={toggleSound}
-            title={isMuted ? "Unmute UI Audio SFX" : "Mute UI Audio SFX"}
-            className="p-2 rounded-full border border-[#12181F]/10 hover:border-[#12181F]/25 bg-white hover:bg-[#F7F8FA] text-[#12181F] transition-all cursor-pointer"
-            aria-label="Toggle UI Audio SFX"
-          >
-            {isMuted ? (
-              <VolumeX className="w-4 h-4 text-[#12181F]/40" />
-            ) : (
-              <Volume2 className="w-4 h-4 text-[#D62828]" />
-            )}
-          </button>
-
           {/* Mobile Hamburger Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

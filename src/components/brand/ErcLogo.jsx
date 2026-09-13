@@ -27,9 +27,6 @@ export default function ErcLogo({
             <span className="font-heading font-black text-xl sm:text-2xl tracking-tight" style={{ color: navyColor }}>
               ERC
             </span>
-            <span className="text-[10px] font-mono px-1.5 py-0.5 rounded font-bold uppercase tracking-wider bg-[#D62828]/10 text-[#D62828] border border-[#D62828]/20">
-              TCET
-            </span>
           </div>
 
           {showSubtitle && (

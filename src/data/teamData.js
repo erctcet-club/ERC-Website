@@ -9,7 +9,7 @@ export const facultyMentor = {
   role: "Faculty Mentor",
   branch: "Department of Electronics & Telecommunication",
   academicYear: "Faculty Oversight",
-  bio: "Providing faculty oversight, academic governance, and strategic mentorship to support student-driven innovation across electronics, robotics, and embedded hardware.",
+  bio: "Faculty mentors guiding student-driven robotics, electronics, embedded systems, and technical research.",
   photo: "/faculty-mentor.jpg",
   image: "/faculty-mentor.jpg",
   email: "erctet@gmail.com",
@@ -17,7 +17,42 @@ export const facultyMentor = {
   github: null
 };
 
-export const coreTeamMembers = [
+// Alumni Core Members (Former Leadership / Passout)
+export const alumniCoreMembers = [
+  {
+    id: 1,
+    name: "Atharav Tanpure",
+    role: "Lead",
+    status: "Alumni",
+    college: "Thakur College of Engineering and Technology",
+    branch: "EXTC",
+    academicYear: "",
+    image: "/atharav-tanpure.jpg",
+    photo: "/atharav-tanpure.jpg",
+    bio: "Former Club Lead providing strategic guidance, alumni mentorship, and technical consultation for advanced robotics initiatives.",
+    linkedin: "https://www.linkedin.com/in/atharvantanpure/",
+    github: "https://github.com/AtharvaTanpure18",
+    email: ""
+  },
+  {
+    id: 2,
+    name: "Sunny Gupta",
+    role: "Co-Lead",
+    status: "Alumni",
+    college: "Thakur College of Engineering and Technology",
+    branch: "",
+    academicYear: "",
+    image: "",
+    photo: null,
+    bio: "",
+    linkedin: "",
+    github: "",
+    email: ""
+  }
+];
+
+// Current Core Members (Active AY 2026-27 Roster)
+export const currentCoreMembers = [
   {
     id: "gautam-thakur",
     name: "Gautam Thakur",
@@ -39,7 +74,7 @@ export const coreTeamMembers = [
     academicYear: "2nd Year",
     photo: "/abhay-vishwakarma.jpg",
     image: "/abhay-vishwakarma.jpg",
-    bio: "Club Co-Lead directing autonomous UAV research, technical projects, and core operations.",
+    bio: "Club Co-Lead directing UAV research, technical projects, and core operations.",
     linkedin: "https://www.linkedin.com/in/abhay-vishwakarma-6a64153b2",
     github: "https://github.com/AbhayLabs-07",
     email: "1032251955@tcetmumbai.in"
@@ -47,12 +82,12 @@ export const coreTeamMembers = [
   {
     id: "bravim-singh",
     name: "Bravim Singh",
-    role: "Technical Head",
-    branch: "ST",
+    role: "Technical Lead",
+    branch: "AI&DS",
     academicYear: "2nd Year",
     photo: "/bravim-singh.jpg",
     image: "/bravim-singh.jpg",
-    bio: "Directs technical architecture and robotics engineering sessions.",
+    bio: "Directs technical architecture, robotics engineering sessions, and project development.",
     linkedin: null,
     github: null,
     email: null
@@ -137,4 +172,7 @@ export const coreTeamMembers = [
   }
 ];
 
-export const allCoreMembers = coreTeamMembers;
+export const coreTeamMembers = currentCoreMembers;
+export const coreTeam = alumniCoreMembers;
+export const teamMembers = currentCoreMembers;
+export const allCoreMembers = currentCoreMembers;
