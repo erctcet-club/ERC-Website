@@ -123,8 +123,8 @@ export default function TeamSection() {
           </div>
         </div>
 
-        {/* 2. Core Team: Flat Responsive Card Grid */}
-        <div className="space-y-8 max-w-7xl mx-auto">
+        {/* 2. Core Team: 3 x 3 Flat Responsive Card Grid */}
+        <div className="space-y-8 max-w-6xl mx-auto">
           <div className="text-center space-y-1">
             <span className="text-xs font-mono text-[#D62828] font-bold uppercase tracking-wider">
               Student Leadership
@@ -134,8 +134,8 @@ export default function TeamSection() {
             </h3>
           </div>
 
-          {/* Grid Layout: 1 col (mobile), 2 cols (tablet), 3 cols (desktop), 4 cols (xl) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {/* 3 x 3 Grid: 1 col (mobile), 2 cols (tablet), 3 cols (desktop) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {coreTeamMembers.map((member) => (
               <TeamMemberCard 
                 key={member.id} 
@@ -230,7 +230,7 @@ export default function TeamSection() {
                     className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-[#12181F]/5 hover:bg-[#1560D4] text-[#12181F] hover:text-white transition-colors text-xs font-mono font-semibold"
                     title="LinkedIn Profile"
                   >
-                    <LinkedinIcon className="w-3.5 h-3.5" />
+                    <LinkedinIcon className="w-4 h-4" />
                     <span>LinkedIn</span>
                   </a>
                 )}
@@ -242,7 +242,7 @@ export default function TeamSection() {
                     className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-[#12181F]/5 hover:bg-[#12181F] text-[#12181F] hover:text-white transition-colors text-xs font-mono font-semibold"
                     title="GitHub Profile"
                   >
-                    <GithubIcon className="w-3.5 h-3.5" />
+                    <GithubIcon className="w-4 h-4" />
                     <span>GitHub</span>
                   </a>
                 )}

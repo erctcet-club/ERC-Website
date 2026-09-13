@@ -1,5 +1,7 @@
 // Official ERC Team Roster (Academic Year 2026-27)
-// Flat member structure without hierarchy or organizational chart dependencies
+// Simple flat member array ordered strictly per institutional leadership specification:
+// 1. Lead, 2. Co-Lead, 3. Technical Head, 4. Creative Lead, 5. Sponsorship Lead,
+// 6. Secretary, 7. Event Lead, 8. Project Lead, 9. Executive Lead
 
 export const facultyMentor = {
   id: "mentor-niket-amoda",
@@ -45,7 +47,7 @@ export const coreTeamMembers = [
   {
     id: "bravim-singh",
     name: "Bravim Singh",
-    role: "Technical Lead",
+    role: "Technical Head",
     branch: "ST",
     academicYear: "2nd Year",
     photo: "/bravim-singh.jpg",
@@ -58,41 +60,28 @@ export const coreTeamMembers = [
   {
     id: "rudram-panchal",
     name: "Rudram Panchal",
-    role: "Social Media Lead",
-    branch: "E&TC",
+    role: "Creative Lead",
+    branch: "ENTC",
     academicYear: "3rd Year",
-    photo: null,
-    image: null,
-    bio: "Oversees digital presence, technical media, and student outreach.",
+    photo: "/rudram.jpg",
+    image: "/rudram.jpg",
+    bio: "Directs creative design, visual branding, and digital media production.",
     linkedin: null,
     github: null,
-    email: null
+    email: "1032240605@tcetmumbai.in"
   },
   {
-    id: "pratimhi-savant",
-    name: "Pratimhi Savant",
-    role: "Sponsorship Head",
-    branch: "SE",
+    id: "prathami-sawant",
+    name: "Prathami Sawant",
+    role: "Sponsorship Lead",
+    branch: "ENTC",
     academicYear: "3rd Year",
-    photo: null,
-    image: null,
-    bio: "Manages corporate technology partnerships and sponsorships.",
-    linkedin: null,
-    github: null,
-    email: null
-  },
-  {
-    id: "nidhi-tare",
-    name: "Nidhi Tare",
-    role: "Project Lead",
-    branch: "AI&DS",
-    academicYear: "2nd Year",
-    photo: null,
-    image: null,
-    bio: "Coordinates project milestones, hardware prototyping, and lab testing.",
-    linkedin: "https://www.linkedin.com/in/nidhi-tare-092410415",
-    github: "https://github.com/nidhitarep054424-max",
-    email: "1032251937@tcetmumbai.in"
+    photo: "/prathami-sawant.jpg",
+    image: "/prathami-sawant.jpg",
+    bio: "Manages corporate technology partnerships, external relations, and sponsorships.",
+    linkedin: "https://www.linkedin.com/in/prathami-sawant-569221325",
+    github: "https://github.com/prathami4216-web",
+    email: "1032240629@tcetmumbai.in"
   },
   {
     id: "anshika-yadav",
@@ -121,17 +110,30 @@ export const coreTeamMembers = [
     email: "1032250992@tcetmumbai.in"
   },
   {
+    id: "nidhi-tare",
+    name: "Nidhi Tare",
+    role: "Project Lead",
+    branch: "AI&DS",
+    academicYear: "2nd Year",
+    photo: null,
+    image: null,
+    bio: "Coordinates project milestones, hardware prototyping, and lab testing.",
+    linkedin: "https://www.linkedin.com/in/nidhi-tare-092410415",
+    github: "https://github.com/nidhitarep054424-max",
+    email: "1032251937@tcetmumbai.in"
+  },
+  {
     id: "riya-yadav",
     name: "Riya Yadav",
     role: "Executive Lead",
-    branch: "ST",
+    branch: "AI&DS",
     academicYear: "2nd Year",
     photo: null,
     image: null,
     bio: "Coordinates operational logistics, administration, and internal scheduling.",
-    linkedin: null,
-    github: null,
-    email: null
+    linkedin: "https://www.linkedin.com/in/riya-yadav-b98086343",
+    github: "https://github.com/riyay0156-web",
+    email: "1032251970@tcetmumbai.in"
   }
 ];
 

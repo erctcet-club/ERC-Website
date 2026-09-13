@@ -4,46 +4,117 @@
 export const projectsData = [
   {
     id: "proj-aim",
-    title: "A.I.M. (Aerial Intelligence & Monitoring)",
+    title: "AIM",
+    subtitle: "Aerial Intelligence",
+    fullForm: "Aerial Intelligence",
     developer: "Abhay Vishwakarma",
     organization: "Electronics & Robotics Club (ERC), Thakur College of Engineering and Technology",
     category: "Aeronautics & Flight",
     year: "2026",
-    image: "/surveillance-drone.jpg",
-    oneLiner: "AI-powered cooperative UAV surveillance and autonomous robotics system.",
-    summary: "A.I.M. is an advanced cooperative UAV system that integrates artificial intelligence, computer vision, drone telemetry, and autonomous navigation. The system uses a primary reconnaissance drone equipped with real-time YOLO-based object detection to analyze aerial environments. By combining visual data with GPS, altitude, orientation, and camera telemetry, the platform estimates geographic locations and communicates navigation information to a secondary drone through an ESP32-based MAVLink relay.",
-    description: "A.I.M. is an advanced cooperative UAV system that integrates artificial intelligence, computer vision, drone telemetry, and autonomous navigation. The system uses a primary reconnaissance drone equipped with real-time YOLO-based object detection to analyze aerial environments. By combining visual data with GPS, altitude, orientation, and camera telemetry, the platform estimates geographic locations and communicates navigation information to a secondary drone through an ESP32-based MAVLink relay.",
-    overview: "A.I.M. is an advanced cooperative UAV system that integrates artificial intelligence, computer vision, drone telemetry, and autonomous navigation. The system uses a primary reconnaissance drone equipped with real-time YOLO-based object detection to analyze aerial environments. By combining visual data with GPS, altitude, orientation, and camera telemetry, the platform estimates geographic locations and communicates navigation information to a secondary drone through an ESP32-based MAVLink relay.",
-    problemStatement: "Conventional single-drone surveillance workflows face operational bottlenecks in wide-area reconnaissance, target acquisition latency, and manual coordinate handoffs. When monitoring dynamic environments, single UAVs struggle to maintain continuous visual track while simultaneously performing low-latency spatial localization and tactical tracking. A.I.M. eliminates these manual dependencies by establishing an autonomous cooperative multi-UAV architecture where scout and tracking units share intelligence directly via peer-to-peer MAVLink relays.",
-    systemArchitecture: "The A.I.M. system operates across four integrated engineering subsystems:\n\n1. Primary Reconnaissance Node: High-altitude scouting quadcopter equipped with an HD optical gimbal and onboard computer vision processor executing real-time YOLO / Ultralytics object detection models.\n\n2. Geospatial Localization Engine: Spatial transformation pipeline fusing camera pitch/yaw, focal length, barometric altitude, and GPS telemetry to reverse-project pixel target detections into true-world geospatial coordinates.\n\n3. ESP32 MAVLink Relay Bridge: Dedicated micro-transceiver bridge translating visual coordinate vectors into standardized MAVLink command packets, transmitting peer-to-peer to secondary drones without requiring continuous ground control station routing.\n\n4. Secondary Autonomous Tracking UAV: ArduPilot-governed tactical drone receiving relayed navigation waypoints, executing closed-loop autonomous pursuit trajectories, and maintaining persistent reconnaissance lock.",
+    image: "/aim-hexacopter.webp",
+    fallbackImage: "/aim-hexacopter.jpg",
+    alt: "AIM Aerial Intelligence Hexacopter UAV Platform on airfield grass",
+    oneLiner: "Autonomous multi-UAV aerial intelligence and cooperative navigation platform.",
+    summary: "AIM (Aerial Intelligence) is a software-based aerial perception and autonomous robotics platform integrated with physical drone hardware. Utilizing a cooperative multi-UAV architecture, the platform pairs high-altitude reconnaissance with real-time YOLOv8 computer vision and geospatial ray projection to calculate accurate ground coordinates and dispatch waypoint navigation over an ESP32 MAVLink relay.",
+    description: "AIM (Aerial Intelligence) is a software-based aerial perception and autonomous robotics platform integrated with physical drone hardware. Utilizing a cooperative multi-UAV architecture, the platform pairs high-altitude reconnaissance with real-time YOLOv8 computer vision and geospatial ray projection to calculate accurate ground coordinates and dispatch waypoint navigation over an ESP32 MAVLink relay.",
+    overview: "AIM (Aerial Intelligence) is an advanced cooperative UAV platform that integrates artificial intelligence, computer vision, drone telemetry, and autonomous navigation. The system pairs an aerial reconnaissance hexacopter equipped with real-time YOLOv8 visual detection with ground control telemetry synchronization. By mathematically intersecting the camera viewing ray with a WGS-84 Earth model using high-frequency GPS, altitude, attitude, and gimbal angles, the system calculates precise real-world geospatial coordinates and communicates mission waypoints to a secondary UAV via an ESP32 wireless MAVLink relay.",
+    problemStatement: "Conventional single-drone autonomous workflows face operational bottlenecks in balancing continuous wide-area perception with low-latency spatial localization and tactical waypoint execution. Single UAVs often struggle to process real-time neural network inference while simultaneously calculating ground spatial coordinates and managing flight paths. AIM addresses this by establishing an autonomous cooperative multi-UAV architecture, separating high-altitude reconnaissance perception from mission waypoint execution using peer-to-peer MAVLink telemetry relays.",
+    systemArchitecture: "The AIM platform operates across four verified hardware & software engineering subsystems:\n\n1. Reconnaissance Hexacopter Node: High-altitude multirotor platform streaming live HD RTSP video to ground edge-compute systems running real-time Ultralytics YOLOv8 object detection pipelines.\n\n2. WGS-84 Ray Projection Engine: Mathematical coordinate projection engine synchronizing video frames with high-frequency MAVLink telemetry (GPS, barometric altitude, roll/pitch/yaw attitude, and camera gimbal angles) to project viewing rays onto the WGS-84 ellipsoid and calculate true geographic latitude/longitude.\n\n3. ESP32 MAVLink Wireless Relay: Hardware micro-transceiver bridge translating calculated geospatial coordinates into standardized MAVLink waypoint packets with sub-50ms transmission latency.\n\n4. Autonomous Secondary UAV: ArduPilot-governed autonomous drone receiving relayed navigation waypoints, executing closed-loop trajectory navigation, and carrying out designated flight missions.",
     technologies: [
-      "Python",
-      "YOLO / Ultralytics",
+      "Python 3.11+",
+      "YOLOv8 / Ultralytics",
       "OpenCV",
-      "MAVLink",
+      "PyMAVLink",
       "ArduPilot",
-      "ESP32",
-      "Autonomous UAV Systems",
-      "Geospatial Computing"
+      "ESP32 Relay",
+      "WGS-84 Ray Projection",
+      "Autonomous UAV Systems"
+    ],
+    hardware: [
+      "Custom Hexacopter Multirotor Airframe",
+      "ArduPilot Compatible Flight Controller",
+      "Optical Gimbal Payload",
+      "ESP32 Wireless MAVLink Transceiver",
+      "Autonomous Secondary UAV"
     ],
     keyFeatures: [
-      "Real-time YOLO / Ultralytics aerial object detection & visual classification",
-      "Cooperative dual-UAV autonomous mission handoff (scout to pursuit drone)",
-      "Spatial reverse-projection geospatial coordinate estimation engine",
-      "ESP32 hardware MAVLink telemetry relay with sub-50ms peer latency",
-      "ArduPilot closed-loop autonomous navigation and orbit tracking",
-      "Stationary target localization with automated telemetry dispatch to command"
+      "Real-time YOLOv8 aerial object detection on live RTSP video feeds",
+      "Mathematical Ray Projection Engine for WGS-84 geospatial coordinate calculation",
+      "Cooperative multi-UAV mission architecture separating perception from execution",
+      "Low-latency ESP32 wireless relay for peer-to-peer MAVLink waypoint dispatch",
+      "ArduPilot closed-loop autonomous navigation and waypoint tracking",
+      "Modular payload architecture for hardware-software integration"
     ],
     developerInfo: {
       name: "Abhay Vishwakarma",
       role: "Club Co-Lead",
-      department: "Electronics & Computing Specialization / ST",
+      department: "AI&DS / ST",
       organization: "Electronics & Robotics Club (ERC), Thakur College of Engineering and Technology",
-      email: "erctet@gmail.com"
+      email: "1032251955@tcetmumbai.in"
     },
     featured: true,
     links: {
-      github: "https://github.com/erctcet-club",
+      github: "https://github.com/AbhayLabs-07/Aerial-Intelligence-Munitions-A.I.M-.git",
+      docs: null
+    }
+  },
+  {
+    id: "proj-self-tuning-fm-radio",
+    title: "Nano-Based Self-Tuning FM Radio",
+    subtitle: "Closed-Loop RSSI Antenna Aiming",
+    developer: "Gautam Thakur",
+    organization: "Electronics & Robotics Club (ERC), Thakur College of Engineering and Technology",
+    category: "Embedded Systems / Electronics / Automation",
+    year: "2026",
+    image: "/self-tuning-fm-radio.webp",
+    fallbackImage: "/self-tuning-fm-radio.jpg",
+    alt: "Nano-Based Self-Tuning FM Radio hardware enclosure with TEA5767 tuner and servo-steered antenna",
+    oneLiner: "Self-tuning Arduino Nano FM receiver with TEA5767 tuner and closed-loop RSSI servo antenna aiming.",
+    summary: "A self-tuning FM receiver built using an Arduino Nano, combining a TEA5767 FM tuner with a servo-actuated antenna and closed-loop RSSI feedback to automatically search for the strongest reception angle and adjust the antenna accordingly.",
+    description: "A self-tuning FM receiver built using an Arduino Nano, combining a TEA5767 FM tuner with a servo-actuated antenna and closed-loop RSSI feedback.\n\nThe system automatically searches for the strongest reception angle and adjusts the antenna accordingly, eliminating the need for manual antenna positioning. Users can control the radio through two buttons and a rotary encoder, with buzzer feedback for different actions.",
+    overview: "The Nano-Based Self-Tuning FM Radio is an automated embedded electronics system designed to optimize FM radio reception without manual antenna intervention. Built around an Arduino Nano, it interfaces with a TEA5767 FM tuner module over I2C, paired with an SG90 servo motor that sweeps a telescopic antenna through a 0–180° arc. By continuously sampling RSSI values across the angular sweep, the embedded firmware dynamically parks the antenna at the orientation yielding peak signal strength, while periodic background routines ensure persistent high-fidelity reception.",
+    problemStatement: "Traditional low-cost FM radios require manual antenna adjustment and retuning when signal quality changes. This project solves that problem by introducing an automated antenna-aiming mechanism with real-time signal-strength monitoring and closed-loop feedback.",
+    systemArchitecture: "1. TEA5767 Tuner Core:\n• Direct I2C register control and PLL frequency computation\n• Real-time RSSI signal strength monitoring and stereo/mono detection\n\n2. Servo Antenna Aiming Engine:\n• SG90 servo motor driving a 0–180° antenna sweep\n• Multi-angle RSSI sampling to automatically park at the strongest reception angle\n\n3. RSSI Watchdog and Periodic Re-seek:\n• Continuous signal quality monitoring and automatic re-aiming when reception degrades\n• Periodic background re-seek executed every 3 minutes\n\n4. Input and Feedback Layer:\n• Rotary encoder for fine frequency tuning (87.5 to 108.0 MHz)\n• Dedicated preset cycling buttons and 16x2 I2C LCD display\n• Audio buzzer feedback confirming user interactions and lock states",
+    technologies: [
+      "Arduino",
+      "C/C++",
+      "TEA5767",
+      "I2C",
+      "LiquidCrystal_I2C",
+      "Servo Control",
+      "RSSI Feedback",
+      "Rotary Encoder",
+      "Embedded State Machines"
+    ],
+    hardware: [
+      "Arduino Nano Microcontroller",
+      "TEA5767 FM Stereo Tuner Module",
+      "SG90 Micro Servo Motor",
+      "16x2 I2C Character LCD Display",
+      "Rotary Encoder with Push Switch",
+      "Dual Preset Pushbuttons & Buzzer",
+      "Telescopic Antenna & Enclosure"
+    ],
+    keyFeatures: [
+      "Closed-loop automatic antenna aiming using live RSSI feedback",
+      "Automatic signal re-search when reception quality degrades",
+      "Periodic background re-seek every 3 minutes",
+      "11 FM presets with next/previous cycling",
+      "Manual frequency tuning from 87.5 to 108.0 MHz",
+      "Servo enable/disable menu",
+      "Live signal strength and stereo/mono status",
+      "Non-blocking embedded control loop"
+    ],
+    developerInfo: {
+      name: "Gautam Thakur",
+      role: "Club Lead",
+      department: "E&TC",
+      organization: "Electronics & Robotics Club (ERC), Thakur College of Engineering and Technology",
+      email: "1032250166@tcetmumbai.in"
+    },
+    featured: true,
+    links: {
+      github: "https://github.com/Electric-Brain/Nano-Based-Radio-for-Grandpa",
       docs: null
     }
   },
@@ -67,7 +138,7 @@ export const projectsData = [
   },
   {
     id: "proj-uav-heavylift",
-    title: "Heavy-Lift Autonomous Quadcopter",
+    title: "Heavy-Lift Autonomous Multirotor",
     developer: "ERC Avionics Wing",
     organization: "Electronics & Robotics Club (ERC), TCET",
     category: "Aeronautics & Flight",
