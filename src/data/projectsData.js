@@ -5,19 +5,19 @@ export const projectsData = [
   {
     id: "proj-aim",
     title: "AIM",
-    subtitle: "Aerial Intelligence",
-    fullForm: "Aerial Intelligence",
+    subtitle: "Aerial Intelligence & Munitions",
+    fullForm: "Aerial Intelligence & Munitions",
     developer: "Abhay Vishwakarma",
     organization: "Electronics & Robotics Club (ERC), Thakur College of Engineering and Technology",
     category: "Aeronautics & Flight",
     year: "2026",
-    image: "/aim-hexacopter.webp",
-    fallbackImage: "/aim-hexacopter.jpg",
-    alt: "AIM Aerial Intelligence Hexacopter UAV Platform on airfield grass",
+    image: "/aim-hexacopter-v2.webp",
+    fallbackImage: "/aim-hexacopter-v2.jpg",
+    alt: "AIM Aerial Intelligence & Munitions UAV Platform",
     oneLiner: "Autonomous multi-UAV aerial intelligence and cooperative navigation platform.",
-    summary: "AIM (Aerial Intelligence) is a software-based aerial perception and autonomous robotics platform integrated with physical drone hardware. Utilizing a cooperative multi-UAV architecture, the platform pairs high-altitude reconnaissance with real-time YOLOv8 computer vision and geospatial ray projection to calculate accurate ground coordinates and dispatch waypoint navigation over an ESP32 MAVLink relay.",
-    description: "AIM (Aerial Intelligence) is a software-based aerial perception and autonomous robotics platform integrated with physical drone hardware. Utilizing a cooperative multi-UAV architecture, the platform pairs high-altitude reconnaissance with real-time YOLOv8 computer vision and geospatial ray projection to calculate accurate ground coordinates and dispatch waypoint navigation over an ESP32 MAVLink relay.",
-    overview: "AIM (Aerial Intelligence) is an advanced cooperative UAV platform that integrates artificial intelligence, computer vision, drone telemetry, and autonomous navigation. The system pairs an aerial reconnaissance hexacopter equipped with real-time YOLOv8 visual detection with ground control telemetry synchronization. By mathematically intersecting the camera viewing ray with a WGS-84 Earth model using high-frequency GPS, altitude, attitude, and gimbal angles, the system calculates precise real-world geospatial coordinates and communicates mission waypoints to a secondary UAV via an ESP32 wireless MAVLink relay.",
+    summary: "AIM (Aerial Intelligence & Munitions) is a software-based aerial perception and autonomous robotics platform integrated with physical drone hardware. Utilizing a cooperative multi-UAV architecture, the platform pairs high-altitude reconnaissance with real-time YOLOv8 computer vision and geospatial ray projection to calculate accurate ground coordinates and dispatch waypoint navigation over an ESP32 MAVLink relay.",
+    description: "AIM (Aerial Intelligence & Munitions) is a software-based aerial perception and autonomous robotics platform integrated with physical drone hardware. Utilizing a cooperative multi-UAV architecture, the platform pairs high-altitude reconnaissance with real-time YOLOv8 computer vision and geospatial ray projection to calculate accurate ground coordinates and dispatch waypoint navigation over an ESP32 MAVLink relay.",
+    overview: "AIM (Aerial Intelligence & Munitions) is an advanced cooperative UAV platform that integrates artificial intelligence, computer vision, drone telemetry, and autonomous navigation. The system pairs an aerial reconnaissance hexacopter equipped with real-time YOLOv8 visual detection with ground control telemetry synchronization. By mathematically intersecting the camera viewing ray with a WGS-84 Earth model using high-frequency GPS, altitude, attitude, and gimbal angles, the system calculates precise real-world geospatial coordinates and communicates mission waypoints to a secondary UAV via an ESP32 wireless MAVLink relay.",
     problemStatement: "Conventional single-drone autonomous workflows face operational bottlenecks in balancing continuous wide-area perception with low-latency spatial localization and tactical waypoint execution. Single UAVs often struggle to process real-time neural network inference while simultaneously calculating ground spatial coordinates and managing flight paths. AIM addresses this by establishing an autonomous cooperative multi-UAV architecture, separating high-altitude reconnaissance perception from mission waypoint execution using peer-to-peer MAVLink telemetry relays.",
     systemArchitecture: "The AIM platform operates across four verified hardware & software engineering subsystems:\n\n1. Reconnaissance Hexacopter Node: High-altitude multirotor platform streaming live HD RTSP video to ground edge-compute systems running real-time Ultralytics YOLOv8 object detection pipelines.\n\n2. WGS-84 Ray Projection Engine: Mathematical coordinate projection engine synchronizing video frames with high-frequency MAVLink telemetry (GPS, barometric altitude, roll/pitch/yaw attitude, and camera gimbal angles) to project viewing rays onto the WGS-84 ellipsoid and calculate true geographic latitude/longitude.\n\n3. ESP32 MAVLink Wireless Relay: Hardware micro-transceiver bridge translating calculated geospatial coordinates into standardized MAVLink waypoint packets with sub-50ms transmission latency.\n\n4. Autonomous Secondary UAV: ArduPilot-governed autonomous drone receiving relayed navigation waypoints, executing closed-loop trajectory navigation, and carrying out designated flight missions.",
     technologies: [
@@ -115,6 +115,88 @@ export const projectsData = [
     featured: true,
     links: {
       github: "https://github.com/Electric-Brain/Nano-Based-Radio-for-Grandpa",
+      docs: null
+    }
+  },
+  {
+    id: "proj-electromaster-4x",
+    title: "ELECTROMASTER 4X",
+    subtitle: "4-in-1 Portable Electronics Lab Toolkit",
+    developer: "Gautam Thakur",
+    organization: "Electronics & Robotics Club (ERC), Thakur College of Engineering and Technology",
+    category: "Electronics / Embedded Systems / Instrumentation / Educational Technology",
+    year: "2026",
+    image: "/electromaster-4x-studio.webp",
+    fallbackImage: "/electromaster-4x-studio.jpg",
+    alt: "ELECTROMASTER 4X 4-in-1 Electronics Laboratory Toolkit with Oscilloscope and Function Generator",
+    oneLiner: "Affordable, portable electronics toolkit combining signal generation, waveform analysis, component testing, and adjustable power delivery.",
+    summary: "ELECTROMASTER 4X is an affordable, portable electronics toolkit that combines signal generation, waveform analysis, component testing, and adjustable power delivery into a single compact system.",
+    description: "ELECTROMASTER 4X is an affordable, portable electronics toolkit that combines signal generation, waveform analysis, component testing, and adjustable power delivery into a single compact system.",
+    overview: "ELECTROMASTER 4X is a compact, multifunctional electronics toolkit designed to combine four essential laboratory and prototyping instruments into a single affordable and portable device.\n\nThe system integrates:\n1. A mini function generator\n2. A Raspberry Pi Pico-based oscilloscope\n3. An Arduino Nano-based component tester\n4. A variable power supply\n\nThe project is designed to make essential electronics testing and experimentation tools more accessible to students, beginners, hobbyists, and engineers.",
+    problemStatement: "Traditional electronics laboratories often require multiple separate instruments, making experimentation expensive and less accessible to students.\n\nELECTROMASTER 4X addresses this problem by integrating multiple essential electronics tools into one compact and cost-effective platform. The project focuses on reducing the cost of essential electronics equipment, combining multiple instruments into one portable device, making experimentation easier for students and beginners, and supporting circuit testing, debugging, prototyping, and educational applications.",
+    systemArchitecture: "1. Mini Function Generator (XR2206 IC):\n• Generates sine, triangle, and square waveforms with adjustable signal characteristics\n• Frequency range selection with dedicated coarse/fine tuning knobs\n• Designed as a compact and affordable alternative for basic signal-generation requirements\n\n2. Raspberry Pi Pico Oscilloscope (Scoopy Environment):\n• Real-time waveform visualization and signal analysis for educational and experimental purposes\n• Hardware ADC sampling connected to the Scoopy application/software environment\n• Dedicated probe inputs with channel attenuation\n\n3. Arduino Nano Component Tester:\n• Automated identification and measurement of resistors, capacitors, diodes, transistors, inductors, and semiconductors\n• Electrical response measurement and parameter calculation using programmed algorithms\n• Display of measured values and component information with calibration support\n\n4. Variable Power Supply (LM2596 Buck Converter):\n• Variable DC power supply designed using a 12V adapter and LM2596 buck-converter module\n• Continuous 1–12V adjustable voltage regulation plus dedicated 5V and 9V test rails\n• Compact, stable, and efficient power delivery suitable for powering and testing electronic circuits",
+    technologies: [
+      "Arduino Nano",
+      "Raspberry Pi Pico",
+      "XR2206 IC",
+      "LM2596 Buck Converter",
+      "C/C++",
+      "Embedded Systems",
+      "I2C / SPI Communication",
+      "ADC-Based Measurement",
+      "EasyEDA",
+      "Scoopy",
+      "PCB Design",
+      "Circuit Prototyping"
+    ],
+    hardware: [
+      "Arduino Nano Microcontroller",
+      "Raspberry Pi Pico Board",
+      "XR2206 Monolithic Function Generator IC",
+      "LM2596 Step-Down Buck Converter Module",
+      "16x2 Character LCD Displays (x2)",
+      "Digital 7-Segment Voltmeter Panel",
+      "Banana Terminal Test Ports & Alligator Probes",
+      "Custom Benchtop Lab Enclosure"
+    ],
+    keyFeatures: [
+      "Four-in-one electronics toolkit",
+      "Mini function generator for waveform generation (sine, triangle, square)",
+      "Raspberry Pi Pico-based oscilloscope for real-time waveform observation",
+      "Arduino Nano-based component tester with automated parameter calculation",
+      "Variable power supply with LM2596 voltage regulation (1–12V)",
+      "Compact and portable benchtop design",
+      "Affordable alternative to multiple laboratory instruments",
+      "Useful for electronics education, experimentation, and circuit debugging",
+      "Modular architecture for future upgrades"
+    ],
+    applications: [
+      "Electronics education and laboratory experiments",
+      "Circuit testing, hardware debugging, and breadboard validation",
+      "Signal generation and waveform analysis",
+      "Component identification and parameter measurement",
+      "Prototype development and hobbyist electronics projects",
+      "Robotics and embedded-system experimentation",
+      "Field-level electronics diagnostics"
+    ],
+    futureScope: [
+      "Touchscreen-based user interface",
+      "Improved oscilloscope bandwidth and sampling resolution",
+      "Higher-performance ADCs or microcontrollers",
+      "Digitally controlled power supply with current limiting",
+      "Bluetooth or Wi-Fi connectivity",
+      "Modular plug-and-play hardware expansion"
+    ],
+    developerInfo: {
+      name: "Gautam Thakur",
+      role: "Club Lead",
+      department: "E&TC",
+      organization: "Electronics & Robotics Club (ERC), Thakur College of Engineering and Technology",
+      email: "1032250166@tcetmumbai.in"
+    },
+    featured: true,
+    links: {
+      github: null,
       docs: null
     }
   },

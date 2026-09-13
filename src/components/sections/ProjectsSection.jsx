@@ -12,7 +12,8 @@ import {
   Terminal,
   CheckCircle2,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  Sparkles
 } from 'lucide-react';
 import { GithubIcon } from '../ui/SocialIcons';
 
@@ -234,11 +235,6 @@ export default function ProjectsSection() {
                   <div className="absolute top-3.5 right-3.5 bg-white/95 backdrop-blur-xs border border-black/10 px-2.5 py-0.5 rounded-full text-[#12181F] font-mono text-[10px] font-bold">
                     {project.year}
                   </div>
-                  {project.id === 'proj-aim' && (
-                    <div className="absolute bottom-3 left-3 bg-[#D62828] text-white px-2.5 py-0.5 rounded-md font-mono text-[9px] font-bold uppercase tracking-wider shadow-sm">
-                      Aerial Intelligence
-                    </div>
-                  )}
                 </div>
 
                 {/* Card Body */}
@@ -407,7 +403,7 @@ export default function ProjectsSection() {
                   <Layers className="w-4 h-4" />
                   <span>Project Overview</span>
                 </h4>
-                <p className="text-sm text-[#12181F]/85 leading-relaxed font-sans">
+                <p className="text-sm text-[#12181F]/85 leading-relaxed font-sans whitespace-pre-line">
                   {activeProjectModal.overview || activeProjectModal.description}
                 </p>
               </div>
@@ -419,7 +415,7 @@ export default function ProjectsSection() {
                     <AlertCircle className="w-4 h-4 text-[#D62828]" />
                     <span>Problem Statement</span>
                   </h4>
-                  <p className="text-xs sm:text-sm text-[#12181F]/80 leading-relaxed font-sans">
+                  <p className="text-xs sm:text-sm text-[#12181F]/80 leading-relaxed font-sans whitespace-pre-line">
                     {activeProjectModal.problemStatement}
                   </p>
                 </div>
@@ -468,6 +464,42 @@ export default function ProjectsSection() {
                       <li key={idx} className="flex items-start gap-2 text-xs font-mono text-[#12181F]/80 p-2.5 rounded-xl bg-[#F7F8FA] border border-[#12181F]/5">
                         <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
                         <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Target Applications (Optional) */}
+              {activeProjectModal.applications && activeProjectModal.applications.length > 0 && (
+                <div className="space-y-3">
+                  <h4 className="text-xs font-mono font-bold text-[#1560D4] uppercase tracking-wider flex items-center gap-2">
+                    <Rocket className="w-4 h-4 text-[#1560D4]" />
+                    <span>Applications</span>
+                  </h4>
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    {activeProjectModal.applications.map((app, idx) => (
+                      <li key={idx} className="flex items-start gap-2 text-xs font-mono text-[#12181F]/80 p-2.5 rounded-xl bg-[#F7F8FA] border border-[#12181F]/5">
+                        <ArrowRight className="w-3.5 h-3.5 text-[#1560D4] shrink-0 mt-0.5" />
+                        <span>{app}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Future Scope (Optional) */}
+              {activeProjectModal.futureScope && activeProjectModal.futureScope.length > 0 && (
+                <div className="space-y-3">
+                  <h4 className="text-xs font-mono font-bold text-[#D62828] uppercase tracking-wider flex items-center gap-2">
+                    <Sparkles className="w-4 h-4 text-[#D62828]" />
+                    <span>Future Scope</span>
+                  </h4>
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    {activeProjectModal.futureScope.map((scope, idx) => (
+                      <li key={idx} className="flex items-start gap-2 text-xs font-mono text-[#12181F]/80 p-2.5 rounded-xl bg-[#F7F8FA] border border-[#12181F]/5">
+                        <Sparkles className="w-3.5 h-3.5 text-[#D62828] shrink-0 mt-0.5" />
+                        <span>{scope}</span>
                       </li>
                     ))}
                   </ul>
