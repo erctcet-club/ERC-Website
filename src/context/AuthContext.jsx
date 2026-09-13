@@ -35,9 +35,58 @@ export function AuthProvider({ children }) {
     try {
       const saved = localStorage.getItem('erc_registrations');
       return saved ? JSON.parse(saved) : [
-        { id: "reg-1", type: "Zephyr 2026", name: "Kunal Sharma", email: "kunal@gmail.com", college: "TCET", dept: "E&TC", date: "2026-09-11" },
-        { id: "reg-2", type: "Drone Workshop", name: "Siddharth Patil", email: "sid@gmail.com", college: "TCET", dept: "AI&DS", date: "2026-09-12" },
-        { id: "reg-3", type: "Club Membership", name: "Aarav Gupta", email: "aarav@gmail.com", college: "TCET", dept: "IT", date: "2026-09-12" }
+        { 
+          id: "reg-1", 
+          type: "Zephyr 2026", 
+          name: "Kunal Sharma", 
+          email: "kunal.sharma@tcetmumbai.in", 
+          phone: "+91 98201 23456", 
+          college: "TCET Mumbai", 
+          dept: "Electronics & Telecommunication", 
+          year: "Third Year (TE)", 
+          track: "Autonomous Ground Robotics (AGV)", 
+          ticketNumber: "ERC-ZEP-10101", 
+          date: "2026-09-11" 
+        },
+        { 
+          id: "reg-2", 
+          type: "Zephyr 2026", 
+          name: "Siddharth Patil", 
+          email: "siddharth.p@tcetmumbai.in", 
+          phone: "+91 97692 87654", 
+          college: "TCET Mumbai", 
+          dept: "Artificial Intelligence & Data Science", 
+          year: "Second Year (SE)", 
+          track: "UAV Autonomous Flight & Drones", 
+          ticketNumber: "ERC-ZEP-10102", 
+          date: "2026-09-12" 
+        },
+        { 
+          id: "reg-3", 
+          type: "Zephyr 2026", 
+          name: "Aarav Gupta", 
+          email: "aarav.gupta@tcetmumbai.in", 
+          phone: "+91 99304 55432", 
+          college: "TCET Mumbai", 
+          dept: "Information Technology", 
+          year: "Second Year (SE)", 
+          track: "Embedded Firmware & KiCad PCB", 
+          ticketNumber: "ERC-ZEP-10103", 
+          date: "2026-09-12" 
+        },
+        { 
+          id: "reg-4", 
+          type: "Zephyr 2026", 
+          name: "Pooja Mehta", 
+          email: "pooja.mehta@tcetmumbai.in", 
+          phone: "+91 98199 44321", 
+          college: "TCET Mumbai", 
+          dept: "Computer Engineering", 
+          year: "Third Year (TE)", 
+          track: "ROS2 Multi-Robot Simulation", 
+          ticketNumber: "ERC-ZEP-10104", 
+          date: "2026-09-13" 
+        }
       ];
     } catch {
       return [];
@@ -64,24 +113,58 @@ export function AuthProvider({ children }) {
     localStorage.setItem('erc_registrations', JSON.stringify(registrations));
   }, [registrations]);
 
-  // Authenticate user
+  // Authenticate user with support for admin / admin123
   const login = (identifier, password) => {
     const cleanId = identifier.trim().toLowerCase();
+    
+    // Official Admin Credentials: admin / admin123
+    if ((cleanId === "admin" || cleanId === "erctet@gmail.com" || cleanId === "admin@erc.in") && password === "admin123") {
+      const adminUser = {
+        id: "usr-admin-lead",
+        email: "erctet@gmail.com",
+        username: "admin",
+        fullName: "System Administrator",
+        role: "Lead Administrator",
+        department: "ERC Operations Command",
+        academicYear: "Admin Access",
+        avatar: "/gautam-thakur.jpg",
+        permissions: ["full_access", "view_registrations", "manage_announcements", "export_data", "manage_events"]
+      };
+      setCurrentUser(adminUser);
+      return { success: true, user: adminUser };
+    }
+
     const user = MOCK_USERS.find(
       u => u.email.toLowerCase() === cleanId || u.username.toLowerCase() === cleanId
     );
 
     // Accept valid demo password or common test password
-    if (user && (password === "erc@tcet2026" || password === "password" || password === "erc2026")) {
+    if (user && (password === "admin123" || password === "erc@tcet2026" || password === "password" || password === "erc2026")) {
       setCurrentUser(user);
       return { success: true, user };
     }
 
-    return { success: false, message: "Invalid credentials. Use demo accounts or password: erc@tcet2026" };
+    return { success: false, message: "Invalid credentials. Use admin / admin123 for Administrator access." };
   };
 
   // Quick switch for reviewers/evaluators
   const quickLoginAs = (role) => {
+    if (role.toLowerCase() === "admin") {
+      const adminUser = {
+        id: "usr-admin-lead",
+        email: "erctet@gmail.com",
+        username: "admin",
+        fullName: "System Administrator",
+        role: "Lead Administrator",
+        department: "ERC Operations Command",
+        academicYear: "Admin Access",
+        avatar: "/gautam-thakur.jpg",
+        permissions: ["full_access", "view_registrations", "manage_announcements", "export_data", "manage_events"]
+      };
+      setCurrentUser(adminUser);
+      return adminUser;
+    }
+
     const user = MOCK_USERS.find(u => u.role.toLowerCase() === role.toLowerCase()) || MOCK_USERS[0];
     setCurrentUser(user);
     return user;
@@ -120,7 +203,7 @@ export function AuthProvider({ children }) {
     const item = {
       id: `reg-${Date.now()}`,
       ...regData,
-      date: new Date().toISOString().split('T')[0]
+      date: regData.date || new Date().toISOString().split('T')[0]
     };
     setRegistrations(prev => [item, ...prev]);
     return item;

@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import ErcLogo from '../brand/ErcLogo';
 import { soundFx } from '../../utils/audio';
+import { useAuth } from '../../context/AuthContext';
 import { 
   Menu, 
   X, 
   Volume2, 
   VolumeX,
-  Sparkles
+  Sparkles,
+  Shield,
+  Lock
 } from 'lucide-react';
 
 const NAV_LINKS = [
@@ -17,11 +20,16 @@ const NAV_LINKS = [
   { name: 'Contact', href: '#contact' },
 ];
 
-export default function Navbar({ onOpenZephyr }) {
+export default function Navbar({ onOpenZephyr, onOpenAdmin }) {
+  const { currentUser, registrations } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [isMuted, setIsMuted] = useState(soundFx.isMuted());
+
+  const zephyrCount = registrations ? registrations.filter(r => 
+    (r.type || '').toLowerCase().includes('zephyr') || (r.track && !r.type)
+  ).length : 0;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -90,26 +98,53 @@ export default function Navbar({ onOpenZephyr }) {
           })}
         </nav>
 
-        {/* Right Controls: Zephyr 26 Action + Audio Toggle */}
-        <div className="flex items-center gap-2.5">
-          {/* Subtle Secondary Action: Zephyr '26 Registration Modal Trigger */}
+        {/* Right Controls: Zephyr 26 Action + Admin Portal + Audio Toggle */}
+        <div className="flex items-center gap-2 sm:gap-2.5">
+          {/* Zephyr '26 Registration Modal Trigger */}
           <button
             onClick={() => {
               soundFx.playClick();
               if (onOpenZephyr) onOpenZephyr();
             }}
-            className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold bg-[#D62828]/10 text-[#D62828] border border-[#D62828]/30 hover:bg-[#D62828] hover:text-white transition-all duration-200 shadow-2xs"
+            className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold bg-[#D62828]/10 text-[#D62828] border border-[#D62828]/30 hover:bg-[#D62828] hover:text-white transition-all duration-200 shadow-2xs cursor-pointer"
             title="Open Zephyr 2026 Registration"
           >
             <Sparkles className="w-3 h-3" />
             <span>Zephyr &apos;26</span>
           </button>
 
+          {/* Admin Section Button (Login or Open Dashboard) */}
+          {currentUser ? (
+            <button
+              onClick={() => {
+                soundFx.playClick();
+                if (onOpenAdmin) onOpenAdmin();
+              }}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono font-bold bg-[#12181F] text-white border border-white/20 hover:bg-[#D62828] transition-all shadow-xs cursor-pointer"
+              title="Open Admin Dashboard (View Zephyr Registrations)"
+            >
+              <Shield className="w-3.5 h-3.5 text-emerald-400" />
+              <span>Admin ({zephyrCount})</span>
+            </button>
+          ) : (
+            <button
+              onClick={() => {
+                soundFx.playClick();
+                if (onOpenAdmin) onOpenAdmin();
+              }}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono font-bold bg-white text-[#12181F] border border-[#12181F]/15 hover:bg-[#12181F] hover:text-white transition-all shadow-2xs cursor-pointer"
+              title="Admin Portal Login (admin / admin123)"
+            >
+              <Lock className="w-3 h-3 text-[#D62828]" />
+              <span>Admin</span>
+            </button>
+          )}
+
           {/* Audio Telemetry Toggle */}
           <button
             onClick={toggleSound}
             title={isMuted ? "Unmute UI Audio SFX" : "Mute UI Audio SFX"}
-            className="p-2 rounded-full border border-[#12181F]/10 hover:border-[#12181F]/25 bg-white hover:bg-[#F7F8FA] text-[#12181F] transition-all"
+            className="p-2 rounded-full border border-[#12181F]/10 hover:border-[#12181F]/25 bg-white hover:bg-[#F7F8FA] text-[#12181F] transition-all cursor-pointer"
             aria-label="Toggle UI Audio SFX"
           >
             {isMuted ? (
@@ -122,7 +157,7 @@ export default function Navbar({ onOpenZephyr }) {
           {/* Mobile Hamburger Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg border border-[#12181F]/15 bg-white text-[#12181F]"
+            className="md:hidden p-2 rounded-lg border border-[#12181F]/15 bg-white text-[#12181F] cursor-pointer"
             aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -150,8 +185,8 @@ export default function Navbar({ onOpenZephyr }) {
             </a>
           ))}
 
-          {/* Mobile Zephyr Trigger */}
-          <div className="pt-2 border-t border-[#12181F]/5">
+          {/* Mobile Zephyr & Admin Triggers */}
+          <div className="pt-2 border-t border-[#12181F]/5 space-y-2">
             <button
               onClick={() => {
                 soundFx.playClick();
@@ -162,6 +197,18 @@ export default function Navbar({ onOpenZephyr }) {
             >
               <Sparkles className="w-3.5 h-3.5" />
               <span>Register for Zephyr 2026</span>
+            </button>
+
+            <button
+              onClick={() => {
+                soundFx.playClick();
+                setMobileMenuOpen(false);
+                if (onOpenAdmin) onOpenAdmin();
+              }}
+              className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-xs font-mono font-bold bg-[#12181F] text-white shadow-xs"
+            >
+              <Shield className="w-3.5 h-3.5 text-emerald-400" />
+              <span>Admin Portal {currentUser ? `(${zephyrCount} Registrations)` : "(Sign In)"}</span>
             </button>
           </div>
         </div>

@@ -84,8 +84,8 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <span className="text-slate-400 block text-[10px]">OFFICIAL CORRESPONDENCE</span>
-                  <a href="mailto:erc@tcetmumbai.in" className="hover:text-white font-bold text-white transition-colors">
-                    erc@tcetmumbai.in
+                  <a href="mailto:erctet@gmail.com" className="hover:text-white font-bold text-white transition-colors">
+                    erctet@gmail.com
                   </a>
                 </div>
               </div>

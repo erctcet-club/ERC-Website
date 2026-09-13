@@ -3,6 +3,18 @@
 
 export const MOCK_USERS = [
   {
+    id: "usr-admin",
+    email: "erctet@gmail.com",
+    username: "admin",
+    passwordHash: "admin123",
+    fullName: "System Administrator",
+    role: "Lead Administrator",
+    department: "ERC Operations Command",
+    academicYear: "Admin Access",
+    avatar: "/gautam-thakur.jpg",
+    permissions: ["full_access", "view_registrations", "manage_announcements", "export_data", "manage_events"]
+  },
+  {
     id: "usr-lead-gautam",
     email: "gautam.thakur@tcetmumbai.in",
     username: "gautam_lead",
@@ -11,7 +23,7 @@ export const MOCK_USERS = [
     role: "Lead",
     department: "Electronics and Telecommunication Engineering",
     academicYear: "Third Year",
-    avatar: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=500&auto=format&fit=crop&q=80",
+    avatar: "/gautam-thakur.jpg",
     permissions: ["full_access", "manage_roster", "manage_announcements", "manage_events", "manage_workshops"]
   },
   {
@@ -23,19 +35,19 @@ export const MOCK_USERS = [
     role: "Co-Lead",
     department: "Electronics & Computing Specialization",
     academicYear: "Core Operations",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&auto=format&fit=crop&q=80",
+    avatar: "/abhay-vishwakarma.jpg",
     permissions: ["full_access", "manage_roster", "manage_announcements", "manage_events", "manage_workshops"]
   },
   {
-    id: "usr-tech-brahim",
-    email: "brahim.singh@tcetmumbai.in",
-    username: "brahim_tech",
+    id: "usr-tech-bravim",
+    email: "bravim.singh@tcetmumbai.in",
+    username: "bravim_tech",
     passwordHash: "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
-    fullName: "Brahim Singh",
+    fullName: "Bravim Singh",
     role: "Technical Lead",
     department: "ST AI&DS-D, Roll 05",
     academicYear: "Second Year",
-    avatar: null,
+    avatar: "/bravim-singh.jpg",
     permissions: ["manage_tech_content", "manage_workshops", "review_projects", "view_dashboard"]
   },
   {

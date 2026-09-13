@@ -3,7 +3,7 @@ import ErcLogo from '../brand/ErcLogo';
 import { MapPin, Mail, Globe, ArrowUpRight } from 'lucide-react';
 import { InstagramIcon, LinkedinIcon, GithubIcon } from '../ui/SocialIcons';
 
-export default function Footer({ onOpenZephyr }) {
+export default function Footer({ onOpenZephyr, onOpenAdmin }) {
   return (
     <footer className="relative bg-[#12181F] text-white pt-16 pb-12 overflow-hidden border-t border-white/10">
       {/* Background Circuit Grid */}
@@ -57,6 +57,16 @@ export default function Footer({ onOpenZephyr }) {
                   </button>
                 </li>
               )}
+              {onOpenAdmin && (
+                <li>
+                  <button 
+                    onClick={onOpenAdmin}
+                    className="hover:text-emerald-400 transition-colors text-slate-400 flex items-center gap-1 text-left font-mono text-xs pt-1"
+                  >
+                    Admin Portal (Sign In) <ArrowUpRight className="w-3 h-3" />
+                  </button>
+                </li>
+              )}
             </ul>
           </div>
 
@@ -92,7 +102,7 @@ export default function Footer({ onOpenZephyr }) {
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-[#1560D4] shrink-0" />
-                <a href="mailto:erc@tcetmumbai.in" className="hover:underline font-mono">erc@tcetmumbai.in</a>
+                <a href="mailto:erctet@gmail.com" className="hover:underline font-mono">erctet@gmail.com</a>
               </div>
               <div className="flex items-center gap-2">
                 <Globe className="w-4 h-4 text-emerald-400 shrink-0" />
